@@ -1,29 +1,37 @@
 import styled from "styled-components";
+import { Container } from "../../styles/grid";
 
 export const Section = styled.section`
   background: var(--gray-800);
-  height: 70vh;
-  padding-bottom: 20vh;
-
-  display: flex;
-  align-items: center;
 `;
 
-export const HeroWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+export const HeroWrapper = styled(Container)`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 50vh;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 
-  max-width: 1200px;
-  padding: 0 20px;
-  margin: 0 auto;
+  @media screen and (max-height: 600px) {
+    min-height: 70vh;
+  }
 
   @media screen and (max-width: 768px) {
+    display: flex;
     flex-direction: column-reverse;
+    justify-content: flex-end;
   }
 `;
 
 export const HeroContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 1.5rem;
+  }
+
   p,
   h1 {
     color: var(--shape);
@@ -50,7 +58,11 @@ export const HeroContent = styled.div`
 `;
 
 export const HeroImageWrapper = styled.div`
-  max-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
   p {
     color: var(--shape);
     margin-bottom: 0.75rem;
@@ -59,5 +71,9 @@ export const HeroImageWrapper = styled.div`
     @media screen and (min-width: 768px) {
       display: none;
     }
+  }
+  .imageWrapper {
+    position: relative;
+    height: 40vh;
   }
 `;

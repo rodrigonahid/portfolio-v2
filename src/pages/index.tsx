@@ -1,8 +1,9 @@
 import type { NextPage } from "next";
-import { Carousel } from "../Carousel";
+import { Carousel } from "../components/Carousel";
 
 import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
+import { Tecnologias } from "../components/Tecnologias";
 import { GlobalStyle } from "../styles/global";
 
 const Home: NextPage = () => {
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
       <Header />
       <Hero />
       <Carousel />
+      <Tecnologias />
     </>
   );
 };

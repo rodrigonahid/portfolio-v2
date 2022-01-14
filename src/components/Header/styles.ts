@@ -8,9 +8,6 @@ export const StyledHeader = styled.header`
 export const HeaderWrapper = styled.div`
   background: var(--gray-600);
   height: 66px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -34,7 +31,7 @@ export const LogoWrapper = styled.div`
 export const Logo = styled.a`
   font-style: normal;
   font-weight: bold;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   line-height: 1rem;
   letter-spacing: 0.04em;
   color: var(--shape);
@@ -45,6 +42,7 @@ export const Nav = styled.nav`
 
   display: flex;
   align-items: center;
+  justify-content: center;
   a {
     display: flex;
     align-items: center;

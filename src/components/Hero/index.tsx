@@ -16,7 +16,14 @@ export function Hero() {
         <HeroImageWrapper>
           <p>👋 Fala dev!</p>
 
-          <Image src="/avatar.png" width={426} height={426} alt="avatar" />
+          <div className="imageWrapper">
+            <Image
+              src="/avatar.png"
+              alt="avatar"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
         </HeroImageWrapper>
       </HeroWrapper>
     </Section>
