@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Head from "next/head";
 import { Carousel } from "../components/Carousel";
 
 import { Header } from "../components/Header";
@@ -10,6 +11,9 @@ import { GlobalStyle } from "../styles/global";
 const Home: NextPage = () => {
   return (
     <>
+      <Head>
+        <title>Rodrigo Nahid - Meu Portfolio</title>
+      </Head>
       <GlobalStyle />
       <Header />
       <Hero />

@@ -24,4 +24,15 @@ export const ItemWrapper = styled.li`
     letter-spacing: 0.04em;
     color: var(--gray-300);
   }
+
+  @media screen and (max-width: 768px) {
+    min-width: 200px;
+
+    &:first-child {
+      margin-left: 20px;
+    }
+    &:last-child {
+      margin-right: 20px;
+    }
+  }
 `;

@@ -102,6 +102,6 @@ export const RightSide = styled.div`
   align-items: center;
   justify-content: flex-end;
   button {
-    margin-left: 32px;
+    margin-left: 18px;
   }
 `;

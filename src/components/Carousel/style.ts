@@ -3,11 +3,8 @@ import { Container } from "../../styles/grid";
 
 export const CarouselBlock = styled.div`
   background: var(--gray-800);
-  height: 30vh;
-
-  @media screen and (min-height: 600px) {
-    height: 20vh;
-  }
+  height: 20vh;
+  margin-top: -1px;
 `;
 
 export const Background = styled.div`
@@ -19,6 +16,8 @@ export const CarouselWrapper = styled.div`
   margin: 0 auto;
   padding: 16px 24px;
   margin-top: -20vh;
+
+  position: relative;
 
   background: var(--gray-700);
 

@@ -48,7 +48,10 @@ export const ItemHightlightedWrapper = styled.div`
       font-weight: normal;
       font-size: 14px;
       line-height: 24px;
-      /* or 171% */
+
+      max-height: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       color: var(--gray-300);
     }
@@ -139,7 +142,8 @@ export const ItemWrapper = styled.div`
       font-weight: normal;
       font-size: 14px;
       line-height: 24px;
-      /* or 171% */
+      max-height: 100px;
+      overflow: hidden;
 
       color: var(--gray-300);
     }
