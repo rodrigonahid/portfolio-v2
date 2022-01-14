@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Container } from "../../styles/grid";
-import { PostItemHighlighted } from "../PostItems";
+import { PostItem, PostItemHighlighted } from "../PostItems";
 
-import { HomePostsWrapper, PostsTitle } from "./styles";
+import { HomePostsWrapper, ItemRow, PostsTitle } from "./styles";
 
 export function HomePosts() {
   return (
@@ -28,9 +28,14 @@ export function HomePosts() {
             </a>
           </Link>
         </PostsTitle>
-        <div>
+        <ItemRow>
           <PostItemHighlighted />
-        </div>
+          <div className="rows">
+            <PostItem />
+            <PostItem />
+            <PostItem />
+          </div>
+        </ItemRow>
       </Container>
     </HomePostsWrapper>
   );
