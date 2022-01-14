@@ -6,11 +6,12 @@ import {
 } from "./styles";
 
 const lista = [
-  { image: "/typescript.svg", alt: "typescript" },
-  { image: "/css.svg", alt: "css" },
-  { image: "/react.svg", alt: "react" },
-  { image: "/node.svg", alt: "node" },
-  { image: "/aws.svg", alt: "aws" },
+  { image: "/typescript.svg", name: "TypeScript" },
+  { image: "/css.svg", name: "CSS/SASS" },
+  { image: "/react.svg", name: "React.js" },
+  { image: "/node.svg", name: "Node.js" },
+  { image: "/aws.svg", name: "AWS" },
+  { image: "/linux.svg", name: "Linux" },
 ];
 
 export function Tecnologias() {
@@ -21,7 +22,7 @@ export function Tecnologias() {
         {lista.map((item, index) => (
           <TecnologiasItem
             key={index}
-            imageAlt={item.alt}
+            imageName={item.name}
             imageSrc={item.image}
           />
         ))}

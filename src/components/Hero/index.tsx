@@ -11,7 +11,7 @@ export function Hero() {
             Seja bem-vindo ao meu <br />
             portfolio!
           </h1>
-          <h2>Conheça um pouco do meu trabalho</h2>
+          <h2>Página em construção!</h2>
         </HeroContent>
         <HeroImageWrapper>
           <p>👋 Fala dev!</p>
