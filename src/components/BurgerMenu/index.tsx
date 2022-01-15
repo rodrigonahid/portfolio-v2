@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Logo } from "../Header/styles";
 import { SidebarItem } from "../SidebarItem";
 import { SidebarHeaderTop } from "../SidebarItem/styles";
@@ -11,18 +12,28 @@ import {
 } from "./style";
 
 export function BurgerMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClose = (e: React.SyntheticEvent) => {
+    if (isOpen) {
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
+    }
+  };
+
   return (
     <>
-      <BurgerWrapper>
+      <BurgerWrapper onClick={handleClose}>
         <BurgerLine></BurgerLine>
         <BurgerLine></BurgerLine>
         <BurgerLine></BurgerLine>
       </BurgerWrapper>
-      <SidebarMenu>
+      <SidebarMenu state={isOpen}>
         <SidebarHeader>
           <SidebarHeaderTop>
             <Logo>{"${rodrigo.nahid}"}</Logo>
-            <Close>
+            <Close onClick={handleClose}>
               <svg
                 width="22"
                 height="22"
@@ -38,9 +49,9 @@ export function BurgerMenu() {
             </Close>
           </SidebarHeaderTop>
           <SidebarList>
-            <SidebarItem name="Home" href="/" active />
-            <SidebarItem name="Posts" href="/posts" />
-            <SidebarItem name="Contato" href="/contact" />
+            <SidebarItem name="Home" href="/" active onClick={handleClose} />
+            <SidebarItem name="Posts" href="/posts" onClick={handleClose} />
+            <SidebarItem name="Contato" href="/contact" onClick={handleClose} />
           </SidebarList>
         </SidebarHeader>
       </SidebarMenu>

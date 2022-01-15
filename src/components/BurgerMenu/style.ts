@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface SidebarMenuProps {
+  state: boolean;
+}
+
 export const BurgerWrapper = styled.button`
   @media screen and (min-width: 768px) {
     display: none;
@@ -19,11 +23,12 @@ export const BurgerLine = styled.span`
   margin: 4px 0;
 `;
 
-export const SidebarMenu = styled.div`
+export const SidebarMenu = styled.div<SidebarMenuProps>`
   position: fixed;
   top: 0;
-  left: 0;
+  right: ${({ state }) => (state ? "0" : "-120vw")};
   z-index: 50;
+  transition: 0.3s;
 
   display: flex;
 

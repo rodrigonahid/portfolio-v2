@@ -1,15 +1,17 @@
 import Link from "next/link";
+import React from "react";
 import { SidebarItemWrapper } from "./styles";
 
 interface ISidebarItem {
   name: string;
   href: string;
+  onClick: (e: React.SyntheticEvent) => void;
   active?: boolean;
 }
 
-export function SidebarItem({ name, href, active }: ISidebarItem) {
+export function SidebarItem({ name, href, active, onClick }: ISidebarItem) {
   return (
-    <SidebarItemWrapper active={active}>
+    <SidebarItemWrapper active={active} onClick={onClick}>
       <Link href={href}>
         <a>
           <span>{name}</span>

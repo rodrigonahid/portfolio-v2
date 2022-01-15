@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface SibarItemWrapperProps {
   active?: boolean;
+  onClick: (e: React.SyntheticEvent) => void;
 }
 
 export const SidebarHeaderTop = styled.div`

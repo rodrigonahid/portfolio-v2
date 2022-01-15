@@ -4,7 +4,6 @@ import { Container } from "../../styles/grid";
 import { ContactButton, ContactSectionWrapper } from "./styles";
 
 export function ContactSection() {
-  console.log(Container);
   return (
     <ContactSectionWrapper>
       <Container>

@@ -40,11 +40,13 @@ export const ItemRow = styled.div`
       grid-template-columns: repeat(1, 1fr);
     }
   }
-  a {
-    margin-left: auto;
-    margin-top: 10px;
-    @media screen and (min-width: 768px) {
-      display: none;
+  .button-link {
+    a {
+      margin-left: auto;
+      margin-top: 10px;
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
     }
   }
 `;
