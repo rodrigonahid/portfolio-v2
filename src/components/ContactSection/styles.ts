@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContactSectionWrapper = styled.section`
   background: var(--gray-700);
-  padding: 20vh 0;
+  padding: 10vh 0;
   .content {
     text-align: center;
     h2 {

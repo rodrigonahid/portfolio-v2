@@ -14,8 +14,11 @@ export function ContactSection() {
             Feedbacks, dicas e sugestões, alguma dúvida? Clique no botão abaixo.
           </p>
           <div className="button-wrapper">
-            <Link href="">
-              <ContactButton>
+            <Link
+              href="https://api.whatsapp.com/send/?phone=5524981125127&text&app_absent=0"
+              passHref
+            >
+              <ContactButton target="_blank">
                 <svg
                   width="20"
                   height="20"
