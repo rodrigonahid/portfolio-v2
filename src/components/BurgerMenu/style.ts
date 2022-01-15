@@ -19,4 +19,32 @@ export const BurgerLine = styled.span`
   margin: 4px 0;
 `;
 
-export const SidebarMenu = styled.div``;
+export const SidebarMenu = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+
+  display: flex;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: var(--gray-600);
+`;
+
+export const SidebarHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  width: 100%;
+  height: 66px;
+`;
+
+export const Close = styled.button`
+  background: transparent;
+  border: none;
+`;
+
+export const SidebarList = styled.ul``;
