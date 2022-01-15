@@ -8,11 +8,12 @@ export const ItemHightlightedWrapper = styled.div`
   margin-bottom: 5px;
 
   @media screen and (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   &::before {
     content: "";
     position: absolute;
+    z-index: 10;
     height: 100%;
     width: 5px;
     background: var(--blue-400);
@@ -35,7 +36,7 @@ export const ItemHightlightedWrapper = styled.div`
       font-style: normal;
       font-weight: 500;
       font-size: 1.5rem;
-      line-height: 24px;
+      line-height: 20px;
 
       letter-spacing: 0.02em;
       color: var(--shape);
@@ -49,7 +50,7 @@ export const ItemHightlightedWrapper = styled.div`
       font-size: 14px;
       line-height: 24px;
 
-      max-height: 100px;
+      max-height: 140px;
       overflow: hidden;
       text-overflow: ellipsis;
 
@@ -63,8 +64,8 @@ export const ItemHightlightedWrapper = styled.div`
     p {
       font-style: normal;
       font-weight: bold;
-      font-size: 1rem;
-      line-height: 28px;
+      font-size: 0.9rem;
+      line-height: 1.25rem;
 
       letter-spacing: 0.04em;
 
@@ -91,11 +92,18 @@ export const ItemHightlightedWrapper = styled.div`
 
     flex: 1;
 
-    // @media screen and (max-width: 768px) {
-    //   height: 200px;
-    // }
-    img {
-      border-radius: 0 8px 8px 0;
+    display: flex;
+
+    min-height: 200px;
+    @media screen and (min-width: 768px) {
+      img {
+        border-radius: 0 8px 8px 0;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      img {
+        border-radius: 8px 8px 0 0;
+      }
     }
   }
 `;
@@ -141,8 +149,8 @@ export const ItemWrapper = styled.div`
       font-style: normal;
       font-weight: normal;
       font-size: 14px;
-      line-height: 24px;
-      max-height: 100px;
+      line-height: 20px;
+      max-height: 80px;
       overflow: hidden;
 
       color: var(--gray-300);

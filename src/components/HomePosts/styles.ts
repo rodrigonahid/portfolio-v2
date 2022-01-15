@@ -8,7 +8,7 @@ export const HomePostsWrapper = styled.section`
 export const PostsTitle = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
   margin-bottom: 32px;
 
   h2 {
@@ -19,32 +19,41 @@ export const PostsTitle = styled.div`
     line-height: 1.7rem;
     letter-spacing: 0.04em;
     color: var(--yellow-500);
+    max-width: 90%;
+    @media screen and (min-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
 
-  a {
-    background: var(--blue-500);
-    width: 186px;
-    padding: 12px;
-    border-radius: 8px;
-
+  .right {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    a {
+      background: var(--blue-500);
+      max-width: 186px;
+      padding: 12px;
+      border-radius: 8px;
 
-    transition: 0.2s filter;
-    white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    &:hover {
-      filter: brightness(0.8);
-    }
+      transition: 0.2s filter;
+      white-space: nowrap;
 
-    span {
-      margin-right: 12px;
+      &:hover {
+        filter: brightness(0.8);
+      }
 
-      font-style: normal;
-      font-weight: bold;
-      font-size: 1.25rem;
-      line-height: 1.5rem;
+      span {
+        margin-right: 12px;
+
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+      }
     }
   }
 `;

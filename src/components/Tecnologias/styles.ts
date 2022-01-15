@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const TecnologiasWrapper = styled.section`
   background: var(--gray-700);
-  padding: 5vh 0 20vh;
+  padding: 10vh 0 20vh;
   margin-top: -1px;
 `;
 
 export const TecnologiasTitle = styled.h2`
   text-align: center;
   color: var(--yellow-500);
-  margin-bottom: 32px;
+  margin-bottom: 4rem;
 `;
 
 export const ListagemTecnologias = styled.ul`
@@ -37,7 +37,7 @@ export const ListagemTecnologias = styled.ul`
       right: 0;
       top: 0;
 
-      height: 100%;
+      height: 20px;
       width: 20px;
 
       background: linear-gradient(
@@ -53,7 +53,7 @@ export const ListagemTecnologias = styled.ul`
       right: left;
       top: 0;
 
-      height: 100%;
+      height: 20px;
       width: 20px;
 
       background: linear-gradient(

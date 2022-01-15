@@ -8,8 +8,8 @@ export const Section = styled.section`
 export const HeroWrapper = styled(Container)`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  min-height: 50vh;
-  padding-top: 2rem;
+  min-height: 55vh;
+  padding-top: 5vh;
   padding-bottom: 2rem;
 
   @media screen and (max-height: 600px) {
