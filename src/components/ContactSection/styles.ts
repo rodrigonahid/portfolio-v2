@@ -8,7 +8,7 @@ export const ContactSectionWrapper = styled.section`
     h2 {
       font-style: normal;
       font-weight: bold;
-      font-size: 42px;
+      font-size: 2.5rem;
       line-height: 48px;
       letter-spacing: 0.04em;
 
@@ -19,7 +19,7 @@ export const ContactSectionWrapper = styled.section`
     p {
       font-style: normal;
       font-weight: bold;
-      font-size: 28px;
+      font-size: 2rem;
       line-height: 32px;
       letter-spacing: 0.04em;
       max-width: 600px;

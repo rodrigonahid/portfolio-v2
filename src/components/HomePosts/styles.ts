@@ -19,41 +19,14 @@ export const PostsTitle = styled.div`
     line-height: 1.7rem;
     letter-spacing: 0.04em;
     color: var(--yellow-500);
-    max-width: 90%;
     @media screen and (min-width: 768px) {
       font-size: 1.5rem;
     }
   }
 
-  .right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    a {
-      background: var(--blue-500);
-      max-width: 186px;
-      padding: 12px;
-      border-radius: 8px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      transition: 0.2s filter;
-      white-space: nowrap;
-
-      &:hover {
-        filter: brightness(0.8);
-      }
-
-      span {
-        margin-right: 12px;
-
-        font-style: normal;
-        font-weight: bold;
-        font-size: 1.25rem;
-        line-height: 1.5rem;
-      }
+  a {
+    @media screen and (max-width: 768px) {
+      display: none;
     }
   }
 `;
@@ -66,5 +39,39 @@ export const ItemRow = styled.div`
     @media screen and (max-width: 768px) {
       grid-template-columns: repeat(1, 1fr);
     }
+  }
+  a {
+    margin-left: auto;
+    margin-top: 10px;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+`;
+
+export const VerTudoButton = styled.a`
+  background: var(--blue-500);
+  width: 186px;
+  padding: 12px;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.2s filter;
+  white-space: nowrap;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+
+  span {
+    margin-right: 12px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
   }
 `;

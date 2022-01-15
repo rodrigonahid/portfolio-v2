@@ -18,3 +18,5 @@ export const BurgerLine = styled.span`
   background: var(--yellow-500);
   margin: 4px 0;
 `;
+
+export const SidebarMenu = styled.div``;
