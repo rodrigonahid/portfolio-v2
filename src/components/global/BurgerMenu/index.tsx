@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 import { Logo } from "../Header/styles";
-import { SidebarItem } from "../SidebarItem";
-import { SidebarHeaderTop } from "../SidebarItem/styles";
+import { SidebarItem } from "../../home/SidebarItem";
+import { SidebarHeaderTop } from "../../home/SidebarItem/styles";
 import {
   BurgerButtonWrapper,
   BurgerLine,

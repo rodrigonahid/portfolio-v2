@@ -11,6 +11,13 @@ export const ItemHightlightedWrapper = styled.div`
   @media screen and (max-width: 768px) {
     flex-direction: column-reverse;
   }
+
+  &:nth-child(2n + 2) {
+    &::before {
+      background: var(--green-500);
+    }
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -18,6 +25,7 @@ export const ItemHightlightedWrapper = styled.div`
     height: 100%;
     width: 5px;
     background: var(--blue-400);
+
     border-radius: 8px 0 0 8px;
   }
 

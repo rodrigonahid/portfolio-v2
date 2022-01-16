@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Container } from "../../styles/grid";
+import { Container } from "../../../styles/grid";
 import { ContactButton, ContactSectionWrapper } from "./styles";
 
 export function ContactSection() {

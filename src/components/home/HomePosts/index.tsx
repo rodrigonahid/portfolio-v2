@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Container } from "../../styles/grid";
-import { PostItem, PostItemHighlighted } from "../PostItems";
+import { Container } from "../../../styles/grid";
+import { PostItem, PostItemHighlighted } from "../../PostItems";
 
 import { HomePostsWrapper, ItemRow, PostsTitle, VerTudoButton } from "./styles";
 

@@ -1,4 +1,4 @@
-import { Container } from "../../styles/grid";
+import { Container } from "../../../styles/grid";
 import { Content, PostHeaderWrapper } from "./styles";
 
 export function PostsHeader() {

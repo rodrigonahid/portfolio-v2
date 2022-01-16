@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Container } from "../../styles/grid";
+import { Container } from "../../../styles/grid";
 
 export const CarouselBlock = styled.div`
   background: var(--gray-800);

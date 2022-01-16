@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 import { BurgerMenu } from "../BurgerMenu";
-import { Container } from "../../styles/grid";
+import { Container } from "../../../styles/grid";
 import { TranslateButton } from "../TranslateButton";
 
 import {

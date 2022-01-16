@@ -12,7 +12,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { CarouselItem } from "../CarouselItem";
-import { Container } from "../../styles/grid";
+import { Container } from "../../../styles/grid";
 
 SwiperCore.use([Pagination]);
 

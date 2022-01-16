@@ -1,5 +1,5 @@
-import { PostsHeader } from "../components/PostsHeader";
-import { PostsContent } from "../components/PostsContent";
+import { PostsHeader } from "../../components/posts/PostsHeader";
+import { PostsContent } from "../../components/posts/PostsContent";
 import Head from "next/head";
 
 export default function Posts() {
