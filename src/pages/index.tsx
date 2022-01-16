@@ -17,13 +17,11 @@ const Home: NextPage = () => {
         <title>Rodrigo Nahid - Meu Portfolio</title>
       </Head>
       <GlobalStyle />
-      <Header />
       <Hero />
       <Carousel />
       <Tecnologias />
       <HomePosts />
       <ContactSection />
-      <Footer />
     </>
   );
 };

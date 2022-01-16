@@ -1,18 +1,22 @@
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/router";
+
+import { BurgerMenu } from "../BurgerMenu";
+import { Container } from "../../styles/grid";
+import { TranslateButton } from "../TranslateButton";
+
 import {
   StyledHeader,
   HeaderWrapper,
   Logo,
   Nav,
-  Translate,
   LogoWrapper,
   RightSide,
 } from "./styles";
-import Link from "next/link";
-import Image from "next/image";
-import { BurgerMenu } from "../BurgerMenu";
-import { Container } from "../../styles/grid";
 
 export function Header() {
+  const router = useRouter();
   return (
     <StyledHeader>
       <Container>
@@ -22,26 +26,23 @@ export function Header() {
           </LogoWrapper>
 
           <Nav>
-            <Link href="#">
-              <a className="active">Home</a>
+            <Link href="/">
+              <a className={router.pathname == "/" ? "active" : ""}>Home</a>
             </Link>
-            <Link href="#">
-              <a>Posts</a>
+            <Link href="/posts">
+              <a className={router.pathname == "/posts" ? "active" : ""}>
+                Posts
+              </a>
             </Link>
-            <Link href="#">
-              <a>Contato</a>
+            <Link href="/contact">
+              <a className={router.pathname == "/contact" ? "active" : ""}>
+                Contato
+              </a>
             </Link>
           </Nav>
 
           <RightSide>
-            <Translate>
-              <Image
-                src="/translate.svg"
-                width={20}
-                height={20}
-                alt="translate icon"
-              />
-            </Translate>
+            <TranslateButton />
             <BurgerMenu />
           </RightSide>
         </HeaderWrapper>

@@ -4,16 +4,15 @@ interface SidebarMenuProps {
   state: boolean;
 }
 
-export const BurgerWrapper = styled.button`
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
+export const BurgerButtonWrapper = styled.button`
   display: flex;
   flex-direction: column;
-
   background: transparent;
   border: none;
   cursor: pointer;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `;
 
 export const BurgerLine = styled.span`

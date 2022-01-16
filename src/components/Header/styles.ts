@@ -14,7 +14,7 @@ export const HeaderWrapper = styled.div`
   .right-side {
     display: flex;
     align-items: center;
-    button {
+    > button {
       margin-left: 28px;
     }
   }
@@ -78,30 +78,11 @@ export const Nav = styled.nav`
   }
 `;
 
-export const Translate = styled.button`
-  background: var(--gray-500);
-  width: 40px;
-  height: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid var(--gray-800);
-  border-radius: 4px;
-
-  cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    filter: brightness(0.8);
-  }
-`;
-
 export const RightSide = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  button {
+  > button {
     margin-left: 18px;
   }
 `;

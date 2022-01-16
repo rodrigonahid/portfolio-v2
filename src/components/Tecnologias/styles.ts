@@ -4,6 +4,8 @@ export const TecnologiasWrapper = styled.section`
   background: var(--gray-700);
   padding: 10vh 0 20vh;
   margin-top: -1px;
+
+  position: relative;
 `;
 
 export const TecnologiasTitle = styled.h2`
@@ -21,8 +23,6 @@ export const ListagemTecnologias = styled.ul`
   align-items: center;
   flex-wrap: wrap;
 
-  position: relative;
-
   @media screen and (max-width: 768px) {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -33,12 +33,12 @@ export const ListagemTecnologias = styled.ul`
     &::after {
       content: "";
 
-      position: fixed;
+      position: absolute;
       right: 0;
       top: 0;
 
-      height: 20px;
-      width: 20px;
+      height: 100%;
+      width: 25px;
 
       background: linear-gradient(
         90deg,
@@ -49,12 +49,12 @@ export const ListagemTecnologias = styled.ul`
     &::before {
       content: "";
 
-      position: fixed;
+      position: absolute;
       right: left;
       top: 0;
 
-      height: 20px;
-      width: 20px;
+      height: 100%;
+      width: 25px;
 
       background: linear-gradient(
         270deg,

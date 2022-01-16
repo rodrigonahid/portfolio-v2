@@ -18,6 +18,7 @@ export const CarouselWrapper = styled.div`
   margin-top: -20vh;
 
   position: relative;
+  z-index: 10;
 
   background: var(--gray-700);
 

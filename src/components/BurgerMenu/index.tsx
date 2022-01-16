@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
+
 import { Logo } from "../Header/styles";
 import { SidebarItem } from "../SidebarItem";
 import { SidebarHeaderTop } from "../SidebarItem/styles";
 import {
+  BurgerButtonWrapper,
   BurgerLine,
-  BurgerWrapper,
   Close,
   SidebarHeader,
   SidebarList,
@@ -22,13 +24,15 @@ export function BurgerMenu() {
     }
   };
 
+  const router = useRouter();
+
   return (
     <>
-      <BurgerWrapper onClick={handleClose}>
+      <BurgerButtonWrapper onClick={handleClose}>
         <BurgerLine></BurgerLine>
         <BurgerLine></BurgerLine>
         <BurgerLine></BurgerLine>
-      </BurgerWrapper>
+      </BurgerButtonWrapper>
       <SidebarMenu state={isOpen}>
         <SidebarHeader>
           <SidebarHeaderTop>
@@ -49,9 +53,24 @@ export function BurgerMenu() {
             </Close>
           </SidebarHeaderTop>
           <SidebarList>
-            <SidebarItem name="Home" href="/" active onClick={handleClose} />
-            <SidebarItem name="Posts" href="/posts" onClick={handleClose} />
-            <SidebarItem name="Contato" href="/contact" onClick={handleClose} />
+            <SidebarItem
+              active={router.pathname === "/" && true}
+              name="Home"
+              href="/"
+              onClick={handleClose}
+            />
+            <SidebarItem
+              active={router.pathname === "/posts" && true}
+              name="Posts"
+              href="/posts"
+              onClick={handleClose}
+            />
+            <SidebarItem
+              active={router.pathname === "/contact" && true}
+              name="Contato"
+              href="/contact"
+              onClick={handleClose}
+            />
           </SidebarList>
         </SidebarHeader>
       </SidebarMenu>

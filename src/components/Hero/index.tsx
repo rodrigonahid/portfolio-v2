@@ -22,6 +22,7 @@ export function Hero() {
               alt="avatar"
               layout="fill"
               objectFit="contain"
+              priority
             />
           </div>
         </HeroImageWrapper>

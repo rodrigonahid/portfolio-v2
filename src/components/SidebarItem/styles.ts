@@ -15,6 +15,7 @@ export const SidebarHeaderTop = styled.div`
 `;
 
 export const SidebarItemWrapper = styled.li<SibarItemWrapperProps>`
+  background: var(--gray-700);
   a {
     position: relative;
 
@@ -45,7 +46,8 @@ export const SidebarItemWrapper = styled.li<SibarItemWrapperProps>`
   ${({ active }) =>
     active &&
     `
-    filter:brightness(0.9);
+    position: relative;
+    background: var(--gray-800);
 
     &::before{
         content: "";
@@ -55,7 +57,7 @@ export const SidebarItemWrapper = styled.li<SibarItemWrapperProps>`
         left:0;
         top: 0;
 
-        width: 5px;
+        width: 4px;
         height: 100%;
 
         background: var(--blue-400);
