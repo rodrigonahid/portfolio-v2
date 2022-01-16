@@ -27,17 +27,17 @@ export function Footer() {
             <h3>SiteMap</h3>
             <ul>
               <li>
-                <Link href="">
+                <Link href="/">
                   <a>Home</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/posts">
                   <a>Posts</a>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/contact">
                   <a>Contato</a>
                 </Link>
               </li>

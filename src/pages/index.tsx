@@ -12,9 +12,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Rodrigo Nahid - Home</title>
+        <title>Rodrigo Nahid | Home</title>
       </Head>
-      <GlobalStyle />
       <Hero />
       <Carousel />
       <Tecnologias />

@@ -21,7 +21,7 @@ export function PostItemHighlighted() {
         </div>
         <span className="bottom">
           <p>24/12/2021</p>
-          <Link href="">
+          <Link href="/posts">
             <a>Ler mais</a>
           </Link>
         </span>
@@ -55,7 +55,7 @@ export function PostItem() {
       </div>
       <span className="bottom">
         <p>24/12/2021</p>
-        <Link href="">
+        <Link href="/posts">
           <a>Ler mais</a>
         </Link>
       </span>
