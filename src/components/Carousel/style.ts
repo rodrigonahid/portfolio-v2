@@ -14,8 +14,10 @@ export const Background = styled.div`
 export const CarouselWrapper = styled.div`
   max-width: 600px;
   margin: 0 auto;
+  height: 250px;
   padding: 16px 24px;
-  margin-top: -20vh;
+
+  margin-top: -13vh;
 
   position: relative;
   z-index: 10;
@@ -27,9 +29,8 @@ export const CarouselWrapper = styled.div`
 
   color: var(--shape);
 
-  @media screen and (min-height: 600px) {
-    margin-top: -10vh;
-  }
+  // @media screen and (min-height: 600px) {
+  // }
 
   h3 {
     color: var(--gray-300);
@@ -39,6 +40,11 @@ export const CarouselWrapper = styled.div`
 `;
 
 export const SwiperWrapper = styled.div`
+  position: relative;
+  height: 100%;
+  .swiper.swiper-initialized.swiper-horizontal {
+    height: 80%;
+  }
   .swiper-pagination {
     bottom: 0px !important;
   }

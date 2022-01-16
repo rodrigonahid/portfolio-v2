@@ -13,7 +13,7 @@ export function HomePosts() {
             <h2>Artigos, vídeos e projetos</h2>
           </div>
           <div className="right">
-            <Link href="" passHref>
+            <Link href="/posts" passHref>
               <VerTudoButton>
                 <span>Ver tudo</span>
                 <svg
@@ -40,7 +40,7 @@ export function HomePosts() {
             <PostItem />
           </div>
           <span className="button-link">
-            <Link href="" passHref>
+            <Link href="/posts" passHref>
               <VerTudoButton>
                 <span>Ver tudo</span>
                 <svg

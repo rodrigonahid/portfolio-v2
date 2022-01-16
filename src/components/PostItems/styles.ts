@@ -5,7 +5,8 @@ export const ItemHightlightedWrapper = styled.div`
   border-radius: 8px;
   position: relative;
   display: flex;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  min-height: 225px;
 
   @media screen and (max-width: 768px) {
     flex-direction: column-reverse;
@@ -50,7 +51,7 @@ export const ItemHightlightedWrapper = styled.div`
       font-size: 14px;
       line-height: 24px;
 
-      max-height: 140px;
+      max-height: 100px;
       overflow: hidden;
       text-overflow: ellipsis;
 
@@ -113,7 +114,7 @@ export const ItemWrapper = styled.div`
   border-radius: 8px;
   position: relative;
   padding: 1.25rem;
-  margin: 5px;
+  margin: 8px;
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }
@@ -150,7 +151,7 @@ export const ItemWrapper = styled.div`
       font-weight: normal;
       font-size: 14px;
       line-height: 20px;
-      max-height: 80px;
+      max-height: 75px;
       overflow: hidden;
 
       color: var(--gray-300);

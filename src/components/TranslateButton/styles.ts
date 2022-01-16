@@ -31,7 +31,7 @@ export const Translate = styled.button`
 
 export const TranslateModal = styled.div<TranslateModalProps>`
   position: absolute;
-  z-index: 100;
+  z-index: 20;
   right: 0;
   top: 48px;
 

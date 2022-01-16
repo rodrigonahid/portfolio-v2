@@ -85,6 +85,9 @@ export const FooterCenter = styled.div`
     a {
       margin: 8px 0;
       color: var(--blue-400);
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `;

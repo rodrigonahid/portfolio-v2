@@ -36,25 +36,27 @@ export const ListagemTecnologias = styled.ul`
       position: absolute;
       right: 0;
       top: 0;
+      z-index: 10;
 
       height: 100%;
-      width: 25px;
+      width: 30px;
 
       background: linear-gradient(
         90deg,
         rgba(0, 0, 0, 0) 0%,
-        var(--gray-700) 100%
+        var(--gray-600) 100%
       );
     }
     &::before {
       content: "";
 
       position: absolute;
-      right: left;
+      left: 0;
       top: 0;
+      z-index: 10;
 
       height: 100%;
-      width: 25px;
+      width: 30px;
 
       background: linear-gradient(
         270deg,

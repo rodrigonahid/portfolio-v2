@@ -5,7 +5,7 @@ export const ItemWrapper = styled.li`
   text-align: center;
 
   padding: 32px;
-  margin: 5px;
+  margin: 8px;
   background: var(--gray-800);
 
   width: 200px;

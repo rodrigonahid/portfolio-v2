@@ -22,8 +22,8 @@ export function Carousel() {
       <CarouselBlock></CarouselBlock>
       <Container>
         <CarouselWrapper>
-          <h3>Meus diferenciais</h3>
           <SwiperWrapper>
+            <h3>Meus diferenciais</h3>
             <Swiper pagination={true} className="mySwiper">
               <SwiperSlide>
                 <CarouselItem />

@@ -35,7 +35,7 @@ export const ItemRow = styled.div`
   .rows {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin: 0 -5px;
+    margin: 0 -8px;
     @media screen and (max-width: 768px) {
       grid-template-columns: repeat(1, 1fr);
     }
