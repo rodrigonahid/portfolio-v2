@@ -6,7 +6,7 @@ export const PostSingleWrapper = styled.section`
   padding-top: 64px;
 `;
 
-export const PostSingleHeader = styled.div`
+export const PostSingleHeaderWrapper = styled.div`
   h1 {
     font-style: normal;
     font-weight: bold;
@@ -26,7 +26,8 @@ export const PostSingleHeader = styled.div`
 
     color: var(--yellow-500);
     span {
-      color: var(--green-500);
+      color: var(--blue-400);
+      margin-left: 8px;
     }
   }
 `;
