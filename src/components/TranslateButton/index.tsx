@@ -1,6 +1,5 @@
 import Image from "next/image";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import ReactDom from "react-dom";
+import React, { useState } from "react";
 
 import {
   Language,
@@ -10,7 +9,7 @@ import {
 } from "./styles";
 
 export function TranslateButton() {
-  const [isTranslateModalOpen, setIsTranslateModalOpen] = useState(true);
+  const [isTranslateModalOpen, setIsTranslateModalOpen] = useState(false);
 
   const handleTranslateModal = (event: React.SyntheticEvent) => {
     setIsTranslateModalOpen(!isTranslateModalOpen);
