@@ -30,7 +30,7 @@ export function Header() {
               <a className={router.pathname == "/" ? "active" : ""}>Home</a>
             </Link>
             <Link href="/posts">
-              <a className={router.pathname == "/posts" ? "active" : ""}>
+              <a className={router.pathname.includes("/posts") ? "active" : ""}>
                 Posts
               </a>
             </Link>

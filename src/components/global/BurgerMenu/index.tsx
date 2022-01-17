@@ -60,7 +60,7 @@ export function BurgerMenu() {
               onClick={handleClose}
             />
             <SidebarItem
-              active={router.pathname === "/posts" && true}
+              active={router.pathname.includes("/posts") && true}
               name="Posts"
               href="/posts"
               onClick={handleClose}
