@@ -2,12 +2,18 @@ import { Container } from "../../../styles/grid";
 import { PostItemHighlighted } from "../../PostItems";
 import { PostContentOffset, PostsContentWrapper } from "./styles";
 
-export function PostsContent() {
+interface PostsProps {
+  posts: object[];
+}
+
+export function PostsContent({ posts }: PostsProps) {
   return (
     <PostsContentWrapper>
       <Container>
         <PostContentOffset>
-          <PostItemHighlighted />
+          {posts.map((post) => {
+            <PostItemHighlighted />;
+          })}
           <PostItemHighlighted />
           <PostItemHighlighted />
           <PostItemHighlighted />
