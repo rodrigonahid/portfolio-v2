@@ -6,7 +6,7 @@ export const api = axios.create({
 
 export async function getPosts() {
   try {
-    const res = await api.get("/posts");
+    const res = await api.get("/posts?populate=%2A");
     return res.data;
   } catch (err: any) {
     return err.message;

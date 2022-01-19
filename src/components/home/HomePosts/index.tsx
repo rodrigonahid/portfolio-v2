@@ -50,10 +50,13 @@ export function HomePosts({ content }: HomePostsProps) {
           {content?.map((post, index) => {
             if (index === 0) {
               return (
-                <PostItemHighlighted id={post.id} content={post.attributes} />
+                <PostItemHighlighted
+                  id={post.id}
+                  attributes={post.attributes}
+                />
               );
             } else {
-              return <PostItem />;
+              return <PostItem id={post.id} attributes={post.attributes} />;
             }
           })}
           {/* <div className="rows">

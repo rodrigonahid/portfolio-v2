@@ -5,7 +5,6 @@ export const ItemHightlightedWrapper = styled.div`
   border-radius: 8px;
   position: relative;
   display: flex;
-  margin-bottom: 8px;
   min-height: 225px;
 
   @media screen and (max-width: 768px) {
@@ -122,7 +121,6 @@ export const ItemWrapper = styled.div`
   border-radius: 8px;
   position: relative;
   padding: 1.25rem;
-  margin: 8px;
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }

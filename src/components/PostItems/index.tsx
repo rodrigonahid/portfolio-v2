@@ -5,8 +5,8 @@ import { ItemHightlightedWrapper, ItemWrapper } from "./styles";
 import { useContext } from "react";
 import { ApiVariableContext } from "../../contexts/apiVariable";
 
-interface ContentProps {
-  content: {
+interface attributesProps {
+  attributes: {
     Title: string;
     Content: string;
     Date: string;
@@ -23,18 +23,18 @@ export interface PictureProps {
   };
 }
 
-export function PostItemHighlighted({ id, content }: ContentProps) {
+export function PostItemHighlighted({ id, attributes }: attributesProps) {
   const apiUrl = useContext(ApiVariableContext);
 
   return (
     <ItemHightlightedWrapper>
       <div className="left">
         <div className="top">
-          <h3>{content.Title}</h3>
-          <p>{content.Content}</p>
+          <h3>{attributes.Title}</h3>
+          <p>{attributes.Content}</p>
         </div>
         <span className="bottom">
-          <p>{content.Date}</p>
+          <p>{attributes.Date}</p>
           <Link href={`/posts/${id}`}>
             <a>Ler mais</a>
           </Link>
@@ -42,7 +42,7 @@ export function PostItemHighlighted({ id, content }: ContentProps) {
       </div>
       <div className="img-wrapper">
         <Image
-          src={apiUrl + content.Picture.data.attributes.url}
+          src={apiUrl + attributes.Picture.data.attributes.url}
           alt="placeholder img"
           layout="fill"
           objectFit="cover"
@@ -52,24 +52,16 @@ export function PostItemHighlighted({ id, content }: ContentProps) {
   );
 }
 
-export function PostItem() {
+export function PostItem({ id, attributes }: attributesProps) {
   return (
     <ItemWrapper>
       <div className="top">
-        <h3>Desenvolvendo uma aplicação em React.js</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac
-          vulputate dolor. Nulla id mi faucibus, cursus lorem eget, porta odio.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut
-          imperdiet nulla. Duis vel diam non nunc maximus accumsan. Nam placerat
-          bibendum odio vel dignissim. Aenean ornare laoreet metus. Fusce
-          sodales purus purus, ac ultricies purus pellentesque quis. Vestibulum
-          efficitur...
-        </p>
+        <h3>{attributes.Title}</h3>
+        <p>{attributes.Content}</p>
       </div>
       <span className="bottom">
-        <p>24/12/2021</p>
-        <Link href="/posts">
+        <p>{attributes.Date}</p>
+        <Link href={`/posts/${id}`}>
           <a>Ler mais</a>
         </Link>
       </span>

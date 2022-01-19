@@ -32,13 +32,14 @@ export const PostsTitle = styled.div`
 `;
 
 export const ItemRow = styled.div`
-  .rows {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin: 0 -8px;
-    @media screen and (max-width: 768px) {
-      grid-template-columns: repeat(1, 1fr);
-    }
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+
+  & > div:first-child{
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
   }
   .button-link {
     a {
