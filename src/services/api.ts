@@ -9,7 +9,15 @@ export async function getPosts() {
     const res = await api.get("/posts");
     return res.data;
   } catch (err: any) {
-    console.log(err);
+    return err.message;
+  }
+}
+
+export async function getPostsHome() {
+  try {
+    const res = await api.get("/posts?pagination[pageSize]=4&populate=%2A");
+    return res.data;
+  } catch (err: any) {
     return err.message;
   }
 }

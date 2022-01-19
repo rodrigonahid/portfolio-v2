@@ -6,8 +6,25 @@ import { ContactSection } from "../components/home/ContactSection";
 import { Hero } from "../components/home/Hero";
 import { HomePosts } from "../components/home/HomePosts";
 import { Tecnologias } from "../components/home/Tecnologias";
+import { PictureProps } from "../components/PostItems";
+import { getPostsHome } from "../services/api";
 
-const Home: NextPage = () => {
+interface postsProps {
+  posts: {
+    data: {
+      attributes: {
+        Title: string;
+        Content: string;
+        Date: string;
+        Picture: PictureProps;
+      };
+      id: number;
+    }[];
+    meta: Object;
+  };
+}
+
+const Home = ({ posts }: postsProps) => {
   return (
     <>
       <Head>
@@ -16,10 +33,19 @@ const Home: NextPage = () => {
       <Hero />
       <Carousel />
       <Tecnologias />
-      <HomePosts />
+      <HomePosts content={posts.data} />
       <ContactSection />
     </>
   );
 };
+
+export async function getStaticProps() {
+  const posts = await getPostsHome();
+  return {
+    props: {
+      posts,
+    },
+  };
+}
 
 export default Home;

@@ -11,12 +11,9 @@ export function PostsContent({ posts }: PostsProps) {
     <PostsContentWrapper>
       <Container>
         <PostContentOffset>
-          {posts.map((post) => {
-            <PostItemHighlighted />;
-          })}
-          <PostItemHighlighted />
-          <PostItemHighlighted />
-          <PostItemHighlighted />
+          {/* {posts.map((post) => {
+            // <PostItemHighlighted content={post.} />;
+          })} */}
         </PostContentOffset>
       </Container>
     </PostsContentWrapper>

@@ -5,25 +5,33 @@ import { ItemHightlightedWrapper, ItemWrapper } from "./styles";
 
 interface ContentProps {
   content: {
-    id: number;
+    Title: string;
+    Content: string;
+    Date: string;
+    Picture: PictureProps;
+  };
+  id: number;
+}
+
+export interface PictureProps {
+  data: {
     attributes: {
-      title: string;
-      content: string;
-      date: string;
+      url: string;
     };
   };
 }
 
 export function PostItemHighlighted({ id, content }: ContentProps) {
+  console.log(content.Picture.data.attributes.url);
   return (
     <ItemHightlightedWrapper>
       <div className="left">
         <div className="top">
-          <h3>{content.attributes.title}</h3>
-          <p>{content.attributes.content}</p>
+          <h3>{content.Title}</h3>
+          <p>{content.Content}</p>
         </div>
         <span className="bottom">
-          <p>24/12/2021</p>
+          <p>{content.Date}</p>
           <Link href={`/posts/${id}`}>
             <a>Ler mais</a>
           </Link>
@@ -31,7 +39,7 @@ export function PostItemHighlighted({ id, content }: ContentProps) {
       </div>
       <div className="img-wrapper">
         <Image
-          src="/blog-placeholder.png"
+          src={content.Picture.data.attributes.url}
           alt="placeholder img"
           layout="fill"
           objectFit="cover"

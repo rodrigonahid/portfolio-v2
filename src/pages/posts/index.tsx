@@ -10,14 +10,13 @@ interface PostsProps {
 }
 
 export default function Posts({ posts }: PostsProps) {
-  console.log(posts);
   return (
     <>
       <Head>
         <title>Rodrigo Nahid | Posts</title>
       </Head>
       <PostsHeader />
-      <PostsContent />
+      <PostsContent posts={posts.data} />
     </>
   );
 }
