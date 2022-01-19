@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { ItemHightlightedWrapper, ItemWrapper } from "./styles";
+import { useContext } from "react";
+import { ApiVariableContext } from "../../contexts/apiVariable";
 
 interface ContentProps {
   content: {
@@ -22,7 +24,8 @@ export interface PictureProps {
 }
 
 export function PostItemHighlighted({ id, content }: ContentProps) {
-  console.log(content.Picture.data.attributes.url);
+  const apiUrl = useContext(ApiVariableContext);
+
   return (
     <ItemHightlightedWrapper>
       <div className="left">
@@ -39,7 +42,7 @@ export function PostItemHighlighted({ id, content }: ContentProps) {
       </div>
       <div className="img-wrapper">
         <Image
-          src={content.Picture.data.attributes.url}
+          src={apiUrl + content.Picture.data.attributes.url}
           alt="placeholder img"
           layout="fill"
           objectFit="cover"

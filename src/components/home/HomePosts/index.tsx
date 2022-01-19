@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useContext } from "react";
+import { ApiVariableContext } from "../../../contexts/apiVariable";
 import { Container } from "../../../styles/grid";
 import { PictureProps, PostItem, PostItemHighlighted } from "../../PostItems";
 
