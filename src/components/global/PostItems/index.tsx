@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { ItemHightlightedWrapper, ItemWrapper } from "./styles";
 import { useContext } from "react";
-import { ApiVariableContext } from "../../contexts/apiVariable";
+import { ApiVariableContext } from "../../../contexts/apiVariable";
 
 interface attributesProps {
   attributes: {

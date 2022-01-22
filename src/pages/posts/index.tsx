@@ -2,7 +2,7 @@ import { PostsHeader } from "../../components/posts/PostsHeader";
 import { PostsContent } from "../../components/posts/PostsContent";
 import Head from "next/head";
 import { getPosts } from "../../services/api";
-import { PictureProps } from "../../components/PostItems";
+import { PictureProps } from "../../components/global/PostItems";
 
 interface PostsProps {
   posts: {

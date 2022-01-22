@@ -2,7 +2,11 @@ import Link from "next/link";
 import { useContext } from "react";
 import { ApiVariableContext } from "../../../contexts/apiVariable";
 import { Container } from "../../../styles/grid";
-import { PictureProps, PostItem, PostItemHighlighted } from "../../PostItems";
+import {
+  PictureProps,
+  PostItem,
+  PostItemHighlighted,
+} from "../../global/PostItems";
 
 import { HomePostsWrapper, ItemRow, PostsTitle, VerTudoButton } from "./styles";
 
@@ -59,9 +63,7 @@ export function HomePosts({ content }: HomePostsProps) {
               return <PostItem id={post.id} attributes={post.attributes} />;
             }
           })}
-          {/* <div className="rows">
-            
-          </div> */}
+
           <span className="button-link">
             <Link href="/posts" passHref>
               <VerTudoButton>

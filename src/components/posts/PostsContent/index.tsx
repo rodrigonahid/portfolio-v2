@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container } from "../../../styles/grid";
-import { PictureProps, PostItemHighlighted } from "../../PostItems";
+import { PictureProps, PostItemHighlighted } from "../../global/PostItems";
 import { PostContentOffset, PostsContentWrapper } from "./styles";
 
 interface PostsProps {
@@ -17,7 +17,6 @@ interface PostsProps {
 
 export function PostsContent({ posts }: PostsProps) {
   const [isLoading, setIsLoading] = useState(false);
-  console.log(isLoading);
   useEffect(() => {
     if (posts) {
       setIsLoading(true);

@@ -12,5 +12,6 @@ export const PostContentOffset = styled.div`
 
   > div {
     border: 1px solid var(--gray-500);
+    margin-bottom: 16px;
   }
 `;

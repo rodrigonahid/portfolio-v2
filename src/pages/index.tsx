@@ -6,7 +6,7 @@ import { ContactSection } from "../components/home/ContactSection";
 import { Hero } from "../components/home/Hero";
 import { HomePosts } from "../components/home/HomePosts";
 import { Tecnologias } from "../components/home/Tecnologias";
-import { PictureProps } from "../components/PostItems";
+import { PictureProps } from "../components/global/PostItems";
 import { getPostsHome } from "../services/api";
 
 interface postsProps {
@@ -25,6 +25,7 @@ interface postsProps {
 }
 
 const Home = ({ posts }: postsProps) => {
+  console.log(posts);
   return (
     <>
       <Head>
