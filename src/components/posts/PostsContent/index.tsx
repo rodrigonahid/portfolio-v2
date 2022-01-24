@@ -1,17 +1,42 @@
+import { useEffect, useState } from "react";
 import { Container } from "../../../styles/grid";
-import { PostItemHighlighted } from "../../PostItems";
+import { PictureProps, PostItemHighlighted } from "../../global/PostItems";
 import { PostContentOffset, PostsContentWrapper } from "./styles";
 
-export function PostsContent() {
+interface PostsProps {
+  posts: {
+    attributes: {
+      Title: string;
+      Content: string;
+      Date: string;
+      Picture: PictureProps;
+    };
+    id: number;
+  }[];
+}
+
+export function PostsContent({ posts }: PostsProps) {
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    if (posts) {
+      setIsLoading(true);
+    }
+  }, [posts]);
+
   return (
     <PostsContentWrapper>
       <Container>
-        <PostContentOffset>
-          <PostItemHighlighted />
-          <PostItemHighlighted />
-          <PostItemHighlighted />
-          <PostItemHighlighted />
-        </PostContentOffset>
+        {isLoading && (
+          <PostContentOffset>
+            {posts.map((post) => (
+              <PostItemHighlighted
+                key={post.id}
+                attributes={post.attributes}
+                id={post.id}
+              />
+            ))}
+          </PostContentOffset>
+        )}
       </Container>
     </PostsContentWrapper>
   );

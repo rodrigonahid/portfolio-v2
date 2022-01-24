@@ -1,10 +1,28 @@
 import Link from "next/link";
+import { useContext } from "react";
+import { ApiVariableContext } from "../../../contexts/apiVariable";
 import { Container } from "../../../styles/grid";
-import { PostItem, PostItemHighlighted } from "../../PostItems";
+import {
+  PictureProps,
+  PostItem,
+  PostItemHighlighted,
+} from "../../global/PostItems";
 
 import { HomePostsWrapper, ItemRow, PostsTitle, VerTudoButton } from "./styles";
 
-export function HomePosts() {
+interface HomePostsProps {
+  content: {
+    attributes: {
+      Title: string;
+      Content: string;
+      Date: string;
+      Picture: PictureProps;
+    };
+    id: number;
+  }[];
+}
+
+export function HomePosts({ content }: HomePostsProps) {
   return (
     <HomePostsWrapper>
       <Container>
@@ -33,12 +51,19 @@ export function HomePosts() {
           </div>
         </PostsTitle>
         <ItemRow>
-          <PostItemHighlighted />
-          <div className="rows">
-            <PostItem />
-            <PostItem />
-            <PostItem />
-          </div>
+          {content?.map((post, index) => {
+            if (index === 0) {
+              return (
+                <PostItemHighlighted
+                  id={post.id}
+                  attributes={post.attributes}
+                />
+              );
+            } else {
+              return <PostItem id={post.id} attributes={post.attributes} />;
+            }
+          })}
+
           <span className="button-link">
             <Link href="/posts" passHref>
               <VerTudoButton>

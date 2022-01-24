@@ -1,15 +1,21 @@
 import { Container } from "../../../styles/grid";
-import { PostSingleHeaderContent } from "../PostsSingleContent/styles";
 import { PostSingleHeaderWrapper, PostSingleWrapper } from "./styles";
 
-export function PostsSingleHeader() {
+interface PostSingleHeaderProps {
+  attributes: {
+    Title: string;
+    Date: string;
+  };
+}
+
+export function PostsSingleHeader({ attributes }: PostSingleHeaderProps) {
   return (
     <PostSingleWrapper>
       <Container>
         <PostSingleHeaderWrapper>
-          <h1>Desenvolvendo uma aplicação em React.js</h1>
+          <h1>{attributes.Title}</h1>
           <p>
-            Written by John doe <span>Monday May 20</span>
+            Criado em <span>{attributes.Date}</span>
           </p>
         </PostSingleHeaderWrapper>
       </Container>
