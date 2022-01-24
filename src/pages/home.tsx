@@ -8,7 +8,6 @@ import { HomePosts } from "../components/home/HomePosts";
 import { Tecnologias } from "../components/home/Tecnologias";
 import { PictureProps } from "../components/global/PostItems";
 import { getPostsHome } from "../services/api";
-import { Soon } from "../styles/soon";
 
 interface postsProps {
   posts: {
@@ -32,9 +31,11 @@ const Home = ({ posts }: postsProps) => {
       <Head>
         <title>Rodrigo Nahid | Home</title>
       </Head>
-      <Soon>
-        <Hero />
-      </Soon>
+      <Hero />
+      <Carousel />
+      <Tecnologias />
+      <HomePosts content={posts.data} />
+      <ContactSection />
     </>
   );
 };

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { PictureProps } from "../../components/global/PostItems";
 import { PostsSingleContent } from "../../components/posts/PostsSingleContent";
@@ -24,6 +25,10 @@ interface PostItemProps {
 export default function PostItem({ singlePost }: PostItemProps) {
   return (
     <>
+      <Head>
+        <title>Rodrigo Nahid | {singlePost.attributes.Title}</title>
+      </Head>
+
       <PostsSingleHeader attributes={singlePost.attributes} />
       <PostsSingleContent attributes={singlePost.attributes} />
     </>
