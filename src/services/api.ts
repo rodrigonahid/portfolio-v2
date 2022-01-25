@@ -1,4 +1,4 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
 export const api = axios.create({
   baseURL: process.env.API_URL + "/api",
@@ -7,7 +7,6 @@ export const api = axios.create({
 export async function getPosts() {
   try {
     const res = await api.get("/posts?populate=%2A");
-    console.log(res);
     return res.data;
   } catch (err: any) {
     return err.message;

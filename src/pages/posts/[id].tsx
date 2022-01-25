@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { PictureProps } from "../../components/global/PostItems";
 import { PostsSingleContent } from "../../components/posts/PostsSingleContent";
 import { PostsSingleHeader } from "../../components/posts/PostsSingleHeader";
-import { getSinglePost } from "../../services/api";
+import { getPosts, getSinglePost } from "../../services/api";
 
 interface StaticPros {
   params: {
@@ -36,23 +36,36 @@ export default function PostItem({ singlePost }: PostItemProps) {
 }
 
 export async function getStaticPaths() {
-  // Return a list of possible value for id
+  const { meta } = await getPosts();
+  const totalPosts: number = meta.pagination.total;
+
+  const mapPosts = () => {
+    const arrayTotal = [];
+    for (let i = 0; i <= totalPosts; i++) {
+      arrayTotal.push({ params: { id: `${i}` } });
+    }
+    return arrayTotal;
+  };
+  // const params = mapPosts();
+  // console.log(params);
   return {
-    paths: [
-      { params: { id: "1" } },
-      { params: { id: "2" } },
-      { params: { id: "3" } },
-    ],
+    paths: mapPosts(),
     fallback: false,
   };
 }
 
 export async function getStaticProps({ params }: StaticPros) {
   const { data } = await getSinglePost(params.id);
-  console.log(data);
+  if (data)
+    return {
+      props: {
+        singlePost: data,
+      },
+    };
+
   return {
     props: {
-      singlePost: data,
+      singlePost: null,
     },
   };
 }

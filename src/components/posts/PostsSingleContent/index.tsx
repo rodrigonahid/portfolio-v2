@@ -19,7 +19,6 @@ interface PostsSingleContentProps {
 
 export function PostsSingleContent({ attributes }: PostsSingleContentProps) {
   const api = useContext(ApiVariableContext);
-  console.log(attributes);
 
   return (
     <PostsSingleContentWrapper>
