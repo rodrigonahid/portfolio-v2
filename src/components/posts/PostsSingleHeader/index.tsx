@@ -1,3 +1,4 @@
+import { useTranslation } from "next-i18next";
 import { Container } from "../../../styles/grid";
 import { PostSingleHeaderWrapper, PostSingleWrapper } from "./styles";
 
@@ -9,13 +10,14 @@ interface PostSingleHeaderProps {
 }
 
 export function PostsSingleHeader({ attributes }: PostSingleHeaderProps) {
+  const { t } = useTranslation("posts");
   return (
     <PostSingleWrapper>
       <Container>
         <PostSingleHeaderWrapper>
           <h1>{attributes.Title}</h1>
           <p>
-            Criado em <span>{attributes.Date}</span>
+            {t("postedAt")} <span>{attributes.Date}</span>
           </p>
         </PostSingleHeaderWrapper>
       </Container>

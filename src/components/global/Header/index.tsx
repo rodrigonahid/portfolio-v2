@@ -14,6 +14,7 @@ import {
   LogoWrapper,
   RightSide,
 } from "./styles";
+import { useEffect } from "react";
 
 export function Header() {
   const router = useRouter();
@@ -25,7 +26,9 @@ export function Header() {
       <Container>
         <HeaderWrapper>
           <LogoWrapper>
-            <Logo>{"${rodrigo.nahid}"}</Logo>
+            <Link href="/" passHref>
+              <Logo>{"${rodrigo.nahid}"}</Logo>
+            </Link>
           </LogoWrapper>
 
           <Nav>

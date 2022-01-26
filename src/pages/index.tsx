@@ -13,7 +13,7 @@ import { getPostsHome } from "../services/api";
 import { Header } from "../components/global/Header";
 import { Footer } from "../components/global/Footer";
 
-interface staticProps {
+export interface staticProps {
   locale: string;
 }
 interface postsProps {
@@ -61,6 +61,7 @@ export async function getStaticProps({ locale }: staticProps) {
         "tech",
         "posts",
         "contact",
+        "footer",
       ])),
     },
   };

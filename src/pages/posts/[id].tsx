@@ -1,3 +1,4 @@
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { Footer } from "../../components/global/Footer";
 import { Header } from "../../components/global/Header";
@@ -11,6 +12,7 @@ interface StaticPros {
   params: {
     id: string;
   };
+  locale: string;
 }
 
 interface PostItemProps {
@@ -46,7 +48,16 @@ export async function getStaticPaths() {
   const mapPosts = () => {
     const arrayTotal = [];
     for (let i = 0; i <= totalPosts; i++) {
-      arrayTotal.push({ params: { id: `${i}` } });
+      arrayTotal.push({ params: { id: `${i}` }, locale: "en" });
+      arrayTotal.push({ params: { id: `${i}` }, locale: "pt-BR" });
+    }
+    return arrayTotal;
+  };
+
+  const mapUsPosts = () => {
+    const arrayTotal = [];
+    for (let i = 0; i <= totalPosts; i++) {
+      arrayTotal.push({ params: { id: `${i}` }, locale: "pt-BR" });
     }
     return arrayTotal;
   };
@@ -57,18 +68,13 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }: StaticPros) {
+export async function getStaticProps({ params, locale }: StaticPros) {
   const { data } = await getSinglePost(params.id);
-  if (data)
-    return {
-      props: {
-        singlePost: data,
-      },
-    };
 
   return {
     props: {
-      singlePost: null,
+      singlePost: data ?? null,
+      ...(await serverSideTranslations(locale, ["header", "posts", "footer"])),
     },
   };
 }

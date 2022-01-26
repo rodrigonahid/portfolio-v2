@@ -31,7 +31,7 @@ export function TranslateButton() {
       </Translate>
       <TranslateModal isOpen={isTranslateModalOpen}>
         <Language>
-          <Link href={router.pathname} locale="pt-BR">
+          <Link href={router.asPath} locale="pt-BR">
             <a onClick={handleTranslateModal}>
               <Image
                 src="/flags/Brazil.svg"
@@ -44,7 +44,7 @@ export function TranslateButton() {
           </Link>
         </Language>
         <Language>
-          <Link href={router.pathname} locale="en">
+          <Link href={router.asPath} locale="en">
             <a onClick={handleTranslateModal}>
               <Image src="/flags/USA.svg" width="16" height="12" alt="usa" />
               <p>English</p>

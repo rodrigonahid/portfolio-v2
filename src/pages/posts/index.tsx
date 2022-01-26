@@ -5,6 +5,8 @@ import { getPosts } from "../../services/api";
 import { PictureProps } from "../../components/global/PostItems";
 import { Header } from "../../components/global/Header";
 import { Footer } from "../../components/global/Footer";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { staticProps } from "..";
 
 interface PostsProps {
   posts: {
@@ -34,11 +36,13 @@ export default function Posts({ posts }: PostsProps) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }: staticProps) {
   const posts = await getPosts();
+
   return {
     props: {
       posts,
+      ...(await serverSideTranslations(locale, ["header", "posts", "footer"])),
     },
   };
 }
