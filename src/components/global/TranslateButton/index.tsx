@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 import {
   Language,
@@ -7,8 +8,10 @@ import {
   TranslateModal,
   TranslateWrapper,
 } from "./styles";
+import Link from "next/link";
 
 export function TranslateButton() {
+  const router = useRouter();
   const [isTranslateModalOpen, setIsTranslateModalOpen] = useState(false);
 
   const handleTranslateModal = (event: React.SyntheticEvent) => {
@@ -28,21 +31,25 @@ export function TranslateButton() {
       </Translate>
       <TranslateModal isOpen={isTranslateModalOpen}>
         <Language>
-          <button onClick={handleTranslateModal}>
-            <Image
-              src="/flags/Brazil.svg"
-              width="16"
-              height="12"
-              alt="brazil"
-            />
-            <p>Português</p>
-          </button>
+          <Link href={router.pathname} locale="pt-BR">
+            <a onClick={handleTranslateModal}>
+              <Image
+                src="/flags/Brazil.svg"
+                width="16"
+                height="12"
+                alt="brazil"
+              />
+              <p>Português</p>
+            </a>
+          </Link>
         </Language>
         <Language>
-          <button onClick={handleTranslateModal}>
-            <Image src="/flags/USA.svg" width="16" height="12" alt="usa" />
-            <p>English</p>
-          </button>
+          <Link href={router.pathname} locale="en">
+            <a onClick={handleTranslateModal}>
+              <Image src="/flags/USA.svg" width="16" height="12" alt="usa" />
+              <p>English</p>
+            </a>
+          </Link>
         </Language>
       </TranslateModal>
     </TranslateWrapper>

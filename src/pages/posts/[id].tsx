@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
+
 import { PictureProps } from "../../components/global/PostItems";
 import { PostsSingleContent } from "../../components/posts/PostsSingleContent";
 import { PostsSingleHeader } from "../../components/posts/PostsSingleHeader";
@@ -46,8 +46,7 @@ export async function getStaticPaths() {
     }
     return arrayTotal;
   };
-  // const params = mapPosts();
-  // console.log(params);
+
   return {
     paths: mapPosts(),
     fallback: false,

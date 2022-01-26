@@ -74,7 +74,7 @@ export const TranslateModal = styled.div<TranslateModalProps>`
 `;
 
 export const Language = styled.div`
-  button {
+  a {
     background: transparent;
     border: none;
     cursor: pointer;

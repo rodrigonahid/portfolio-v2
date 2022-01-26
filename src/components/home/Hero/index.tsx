@@ -1,17 +1,22 @@
 import Image from "next/image";
 import { HeroContent, HeroImageWrapper, HeroWrapper, Section } from "./style";
 
-export function Hero() {
+interface HeroProps {
+  translation: {
+    welcome: string;
+    title: string;
+    description: string;
+  };
+}
+
+export function Hero({ translation }: HeroProps) {
   return (
     <Section>
       <HeroWrapper>
         <HeroContent>
-          <p>👋 Fala dev!</p>
-          <h1>
-            Seja bem-vindo ao meu <br />
-            portfolio!
-          </h1>
-          <h2>Página em construção!</h2>
+          <p>👋 {translation.welcome}</p>
+          <h1>{translation.title}</h1>
+          <h2>{translation.description}</h2>
         </HeroContent>
         <HeroImageWrapper>
           <p>👋 Fala dev!</p>
