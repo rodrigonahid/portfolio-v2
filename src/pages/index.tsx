@@ -60,6 +60,7 @@ export async function getStaticProps({ locale }: staticProps) {
         "diferenciais",
         "tech",
         "posts",
+        "contact",
       ])),
     },
   };

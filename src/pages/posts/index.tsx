@@ -3,6 +3,8 @@ import { PostsContent } from "../../components/posts/PostsContent";
 import Head from "next/head";
 import { getPosts } from "../../services/api";
 import { PictureProps } from "../../components/global/PostItems";
+import { Header } from "../../components/global/Header";
+import { Footer } from "../../components/global/Footer";
 
 interface PostsProps {
   posts: {
@@ -24,8 +26,10 @@ export default function Posts({ posts }: PostsProps) {
       <Head>
         <title>Rodrigo Nahid | Posts</title>
       </Head>
+      <Header />
       <PostsHeader />
       <PostsContent posts={posts.data} />
+      <Footer />
     </>
   );
 }

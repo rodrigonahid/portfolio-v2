@@ -1,17 +1,17 @@
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 import { Container } from "../../../styles/grid";
 import { ContactButton, ContactSectionWrapper } from "./styles";
 
 export function ContactSection() {
+  const { t } = useTranslation("contact");
   return (
     <ContactSectionWrapper>
       <Container>
         <div className="content">
-          <h2>Vamos trocar uma ideia?</h2>
-          <p>
-            Feedbacks, dicas e sugestões, alguma dúvida? Clique no botão abaixo.
-          </p>
+          <h2>{t("title")}</h2>
+          <p>{t("description")}</p>
           <div className="button-wrapper">
             <Link
               href="https://api.whatsapp.com/send/?phone=5524981125127&text&app_absent=0"
@@ -30,7 +30,7 @@ export function ContactSection() {
                     fill="#E1E1E6"
                   />
                 </svg>
-                Contato
+                {t("button")}
               </ContactButton>
             </Link>
           </div>

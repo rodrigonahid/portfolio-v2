@@ -1,3 +1,4 @@
+import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "../../../styles/grid";
@@ -10,6 +11,9 @@ import {
 } from "./styles";
 
 export function Footer() {
+  const { t } = useTranslation("footer");
+  const date = new Date();
+
   return (
     <StyledFooter>
       <Container>
@@ -17,12 +21,15 @@ export function Footer() {
           <FooterLeft>
             <div className="top">
               <h2>{"${rodrigo.nahid}"}</h2>
-              <p>Obrigado por ler até aqui!</p>
+              <p>{t("thanks")}</p>
             </div>
             <div className="bottom">
-              <p>© 2022 Rodrigo Nahid. Todos os direitos reservados</p>
+              <p>
+                © {date.getFullYear()} Rodrigo Nahid. {t("rights")}
+              </p>
             </div>
           </FooterLeft>
+
           <FooterCenter>
             <h3>SiteMap</h3>
             <ul>
@@ -45,7 +52,7 @@ export function Footer() {
           </FooterCenter>
 
           <FooterRight>
-            <h3>Contatos</h3>
+            <h3>{t("contatos")}</h3>
             <Link href="https://www.linkedin.com/in/rodrigo-nahid/" passHref>
               <a target="_blank">
                 <Image

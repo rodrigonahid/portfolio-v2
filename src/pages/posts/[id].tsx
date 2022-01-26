@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { Footer } from "../../components/global/Footer";
+import { Header } from "../../components/global/Header";
 
 import { PictureProps } from "../../components/global/PostItems";
 import { PostsSingleContent } from "../../components/posts/PostsSingleContent";
@@ -29,8 +31,10 @@ export default function PostItem({ singlePost }: PostItemProps) {
         <title>Rodrigo Nahid | {singlePost.attributes.Title}</title>
       </Head>
 
+      <Header />
       <PostsSingleHeader attributes={singlePost.attributes} />
       <PostsSingleContent attributes={singlePost.attributes} />
+      <Footer />
     </>
   );
 }

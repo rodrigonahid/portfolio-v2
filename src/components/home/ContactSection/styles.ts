@@ -14,7 +14,7 @@ export const ContactSectionWrapper = styled.section`
 
       color: var(--yellow-500);
 
-      margin-bottom: 36px;
+      margin-bottom: 24px;
     }
     p {
       font-style: normal;
