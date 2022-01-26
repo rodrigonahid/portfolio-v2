@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
+
 import { HeroContent, HeroImageWrapper, HeroWrapper, Section } from "./style";
 
 interface HeroProps {
@@ -9,17 +11,19 @@ interface HeroProps {
   };
 }
 
-export function Hero({ translation }: HeroProps) {
+export function Hero() {
+  const { t } = useTranslation("common");
+
   return (
     <Section>
       <HeroWrapper>
         <HeroContent>
-          <p>👋 {translation.welcome}</p>
-          <h1>{translation.title}</h1>
-          <h2>{translation.description}</h2>
+          <p>👋 {t("welcome")}</p>
+          <h1>{t("title")}</h1>
+          <h2>{t("description")}</h2>
         </HeroContent>
         <HeroImageWrapper>
-          <p>👋 Fala dev!</p>
+          <p>👋 {t("welcome")}</p>
 
           <div className="imageWrapper">
             <Image

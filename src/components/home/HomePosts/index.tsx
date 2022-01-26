@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { useContext } from "react";
-import { ApiVariableContext } from "../../../contexts/apiVariable";
+import { useTranslation } from "next-i18next";
+
 import { Container } from "../../../styles/grid";
 import {
   PictureProps,
@@ -23,17 +23,19 @@ interface HomePostsProps {
 }
 
 export function HomePosts({ content }: HomePostsProps) {
+  const { t } = useTranslation("posts");
+
   return (
     <HomePostsWrapper>
       <Container>
         <PostsTitle>
           <div className="left">
-            <h2>Artigos, vídeos e projetos</h2>
+            <h2>{t("sectionTitle")}</h2>
           </div>
           <div className="right">
             <Link href="/posts" passHref>
               <VerTudoButton>
-                <span>Ver tudo</span>
+                <span>{t("button")}</span>
                 <svg
                   width="11"
                   height="20"
@@ -67,7 +69,7 @@ export function HomePosts({ content }: HomePostsProps) {
           <span className="button-link">
             <Link href="/posts" passHref>
               <VerTudoButton>
-                <span>Ver tudo</span>
+                <span>{t("button")}</span>
                 <svg
                   width="11"
                   height="20"

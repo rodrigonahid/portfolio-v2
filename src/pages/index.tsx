@@ -10,6 +10,8 @@ import { HomePosts } from "../components/home/HomePosts";
 import { Tecnologias } from "../components/home/Tecnologias";
 import { PictureProps } from "../components/global/PostItems";
 import { getPostsHome } from "../services/api";
+import { Header } from "../components/global/Header";
+import { Footer } from "../components/global/Footer";
 
 interface staticProps {
   locale: string;
@@ -30,23 +32,19 @@ interface postsProps {
 }
 
 const Home = ({ posts }: postsProps) => {
-  const { t } = useTranslation("common");
-  const heroTranslation = {
-    welcome: t("welcome"),
-    title: t("title"),
-    description: t("description"),
-  };
-  console.log(heroTranslation);
   return (
     <>
       <Head>
         <title>Rodrigo Nahid | Home</title>
       </Head>
-      <Hero translation={heroTranslation} />
+
+      <Header />
+      <Hero />
       <Carousel />
       <Tecnologias />
       <HomePosts content={posts.data} />
       <ContactSection />
+      <Footer />
     </>
   );
 };
@@ -56,7 +54,13 @@ export async function getStaticProps({ locale }: staticProps) {
   return {
     props: {
       posts,
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "header",
+        "diferenciais",
+        "tech",
+        "posts",
+      ])),
     },
   };
 }

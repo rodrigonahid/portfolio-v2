@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
 
 import { ItemHightlightedWrapper, ItemWrapper } from "./styles";
 import { useContext } from "react";
@@ -26,6 +27,8 @@ export interface PictureProps {
 export function PostItemHighlighted({ id, attributes }: attributesProps) {
   const apiUrl = useContext(ApiVariableContext);
 
+  const { t } = useTranslation("posts");
+
   return (
     <ItemHightlightedWrapper>
       <div className="left">
@@ -36,7 +39,7 @@ export function PostItemHighlighted({ id, attributes }: attributesProps) {
         <span className="bottom">
           <p>{attributes.Date}</p>
           <Link href={`/posts/${id}`}>
-            <a>Ler mais</a>
+            <a>{t("singleLink")}</a>
           </Link>
         </span>
       </div>
@@ -53,6 +56,8 @@ export function PostItemHighlighted({ id, attributes }: attributesProps) {
 }
 
 export function PostItem({ id, attributes }: attributesProps) {
+  const { t } = useTranslation("posts");
+
   return (
     <ItemWrapper>
       <div className="top">
@@ -62,7 +67,7 @@ export function PostItem({ id, attributes }: attributesProps) {
       <span className="bottom">
         <p>{attributes.Date}</p>
         <Link href={`/posts/${id}`}>
-          <a>Ler mais</a>
+          <a>{t("singleLink")}</a>
         </Link>
       </span>
     </ItemWrapper>

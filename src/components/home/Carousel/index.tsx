@@ -1,12 +1,13 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Pagination } from "swiper";
+import { useTranslation } from "next-i18next";
+
 import {
   Background,
   CarouselBlock,
   CarouselWrapper,
   SwiperWrapper,
 } from "./style";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import SwiperCore, { Pagination } from "swiper";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -17,13 +18,15 @@ import { Container } from "../../../styles/grid";
 SwiperCore.use([Pagination]);
 
 export function Carousel() {
+  const { t } = useTranslation("diferenciais");
+
   return (
     <Background>
       <CarouselBlock></CarouselBlock>
       <Container>
         <CarouselWrapper>
           <SwiperWrapper>
-            <h3>Meus diferenciais</h3>
+            <h3>{t("especialidades")}</h3>
             <Swiper pagination={true} className="mySwiper">
               <SwiperSlide>
                 <CarouselItem />

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/router";
 
+import { useTranslation } from "next-i18next";
 import { BurgerMenu } from "../BurgerMenu";
 import { Container } from "../../../styles/grid";
 import { TranslateButton } from "../TranslateButton";
@@ -17,6 +17,9 @@ import {
 
 export function Header() {
   const router = useRouter();
+
+  const { t } = useTranslation("header");
+
   return (
     <StyledHeader>
       <Container>
@@ -36,7 +39,7 @@ export function Header() {
             </Link>
             <Link href="/contact">
               <a className={router.pathname == "/contact" ? "active" : ""}>
-                Contato
+                {t("contact")}
               </a>
             </Link>
           </Nav>

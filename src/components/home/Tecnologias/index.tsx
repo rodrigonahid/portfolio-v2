@@ -1,3 +1,5 @@
+import { useTranslation } from "next-i18next";
+
 import { TecnologiasItem } from "../TecnologiasItem";
 import {
   ListagemTecnologias,
@@ -15,9 +17,11 @@ const lista = [
 ];
 
 export function Tecnologias() {
+  const { t } = useTranslation("tech");
+
   return (
     <TecnologiasWrapper>
-      <TecnologiasTitle>Tecnologias preferidas</TecnologiasTitle>
+      <TecnologiasTitle>{t("techs")}</TecnologiasTitle>
       <ListagemTecnologias>
         {lista.map((item, index) => (
           <TecnologiasItem
