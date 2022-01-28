@@ -37,7 +37,7 @@ export default function Posts({ posts }: PostsProps) {
 }
 
 export async function getStaticProps({ locale }: staticProps) {
-  const posts = await getPosts();
+  const posts = await getPosts(locale);
 
   return {
     props: {

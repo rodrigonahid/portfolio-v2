@@ -6,7 +6,7 @@ import { Header } from "../../components/global/Header";
 import { PictureProps } from "../../components/global/PostItems";
 import { PostsSingleContent } from "../../components/posts/PostsSingleContent";
 import { PostsSingleHeader } from "../../components/posts/PostsSingleHeader";
-import { getPosts, getSinglePost } from "../../services/api";
+import { getAllPosts, getPosts, getSinglePost } from "../../services/api";
 
 interface StaticPros {
   params: {
@@ -26,6 +26,13 @@ interface PostItemProps {
   };
 }
 
+interface Path {
+  id: number;
+  attributes: {
+    locale: string;
+  };
+}
+
 export default function PostItem({ singlePost }: PostItemProps) {
   return (
     <>
@@ -42,28 +49,14 @@ export default function PostItem({ singlePost }: PostItemProps) {
 }
 
 export async function getStaticPaths() {
-  const { meta } = await getPosts();
-  const totalPosts: number = meta.pagination.total;
-
-  const mapPosts = () => {
-    const arrayTotal = [];
-    for (let i = 0; i <= totalPosts; i++) {
-      arrayTotal.push({ params: { id: `${i}` }, locale: "en" });
-      arrayTotal.push({ params: { id: `${i}` }, locale: "pt-BR" });
-    }
-    return arrayTotal;
-  };
-
-  const mapUsPosts = () => {
-    const arrayTotal = [];
-    for (let i = 0; i <= totalPosts; i++) {
-      arrayTotal.push({ params: { id: `${i}` }, locale: "pt-BR" });
-    }
-    return arrayTotal;
-  };
+  const { data } = await getAllPosts();
 
   return {
-    paths: mapPosts(),
+    // paths: [{ params: { id: `${i}` }, locale: "en" }]
+    paths: data.map((item: Path) => ({
+      params: { id: `${item.id}` },
+      locale: item.attributes.locale,
+    })),
     fallback: false,
   };
 }

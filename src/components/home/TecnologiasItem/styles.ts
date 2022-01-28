@@ -12,6 +12,7 @@ export const ItemWrapper = styled.li`
   height: 200px;
 
   border-radius: 8px;
+  transition: 0.2s;
 
   h3 {
     margin-top: 12px;
@@ -23,6 +24,12 @@ export const ItemWrapper = styled.li`
 
     letter-spacing: 0.04em;
     color: var(--gray-300);
+  }
+  @media screen and (min-width: 768px) {
+    &:hover {
+      filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.25098));
+      transform: translate(-2px, -2px);
+    }
   }
 
   @media screen and (max-width: 768px) {

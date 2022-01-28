@@ -46,7 +46,7 @@ export const ContactButton = styled.a`
   padding: 12px 36px;
   border-radius: 8px;
 
-  transition: 0.2s filter;
+  transition: 0.2s;
   cursor: pointer;
 
   font-style: normal;
@@ -61,6 +61,9 @@ export const ContactButton = styled.a`
   }
 
   &: hover {
-    filter: brightness(0.8);
+    &:hover {
+      filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.25098)) brightness(0.9);
+      transform: translate(-2px, -2px);
+    }
   }
 `;

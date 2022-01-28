@@ -50,7 +50,7 @@ const Home = ({ posts }: postsProps) => {
 };
 
 export async function getStaticProps({ locale }: staticProps) {
-  const posts = await getPostsHome();
+  const posts = await getPostsHome(locale);
   return {
     props: {
       posts,

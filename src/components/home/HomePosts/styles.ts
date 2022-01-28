@@ -62,11 +62,14 @@ export const VerTudoButton = styled.a`
   align-items: center;
   justify-content: center;
 
-  transition: 0.2s filter;
+  transition: 0.2s;
   white-space: nowrap;
 
   &:hover {
-    filter: brightness(0.8);
+    &:hover {
+      filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.25098)) brightness(0.8);
+      transform: translate(-2px, -2px);
+    }
   }
 
   span {
