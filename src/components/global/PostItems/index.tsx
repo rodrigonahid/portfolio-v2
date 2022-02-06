@@ -5,40 +5,33 @@ import { useTranslation } from "next-i18next";
 import { ItemHightlightedWrapper, ItemWrapper } from "./styles";
 import { useContext } from "react";
 import { ApiVariableContext } from "../../../contexts/apiVariable";
+import { PostsProps } from "../../../pages";
 
 interface attributesProps {
-  attributes: {
-    Title: string;
-    Content: string;
-    Date: string;
-    Picture: PictureProps;
-  };
-  id: number;
-}
-
-export interface PictureProps {
-  data: {
-    attributes: {
-      url: string;
-    };
+  content: {
+    id: string;
+    title: string;
+    html: string;
+    created_at: string;
   };
 }
 
-export function PostItemHighlighted({ id, attributes }: attributesProps) {
+export function PostItemHighlighted({ content }: attributesProps) {
+  console.log(content);
   const apiUrl = useContext(ApiVariableContext);
 
   const { t } = useTranslation("posts");
 
   return (
     <ItemHightlightedWrapper>
-      <div className="left">
+      {/* <div className="left">
         <div className="top">
-          <h3>{attributes.Title}</h3>
-          <p>{attributes.Content}</p>
+          <h3>{content.title}</h3>
+          {content.html}
         </div>
         <span className="bottom">
-          <p>{attributes.Date}</p>
-          <Link href={`/posts/${id}`}>
+          <p>{content.created_at}</p>
+          <Link href={`/posts/${content.id}`}>
             <a>{t("singleLink")}</a>
           </Link>
         </span>
@@ -50,26 +43,26 @@ export function PostItemHighlighted({ id, attributes }: attributesProps) {
           layout="fill"
           objectFit="cover"
         />
-      </div>
+      </div> */}
     </ItemHightlightedWrapper>
   );
 }
 
-export function PostItem({ id, attributes }: attributesProps) {
+export function PostItem({ content }: attributesProps) {
   const { t } = useTranslation("posts");
 
   return (
     <ItemWrapper>
-      <div className="top">
-        <h3>{attributes.Title}</h3>
-        <p>{attributes.Content}</p>
+      {/* <div className="top">
+        <h3>{content.title}</h3>
+        {content.html}
       </div>
       <span className="bottom">
-        <p>{attributes.Date}</p>
-        <Link href={`/posts/${id}`}>
+        <p>{content.title}</p>
+        <Link href={`/posts/${content.id}`}>
           <a>{t("singleLink")}</a>
         </Link>
-      </span>
+      </span> */}
     </ItemWrapper>
   );
 }

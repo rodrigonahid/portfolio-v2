@@ -1,12 +1,16 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: process.env.API_URL + "/api",
+  baseURL: process.env.API_URL + "/ghost/api/v3",
+  params: {
+    key: process.env.API_KEY,
+  },
 });
 
 export async function getPosts(locale: string) {
   try {
-    const res = await api.get(`/posts?populate=%2A&locale=${locale}`);
+    const res = await api.get(`/content/posts?include=tags`);
+
     return res.data;
   } catch (err: any) {
     return err.message;

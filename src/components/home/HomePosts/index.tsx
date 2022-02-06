@@ -2,27 +2,22 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
 import { Container } from "../../../styles/grid";
-import {
-  PictureProps,
-  PostItem,
-  PostItemHighlighted,
-} from "../../global/PostItems";
+import { PostItem, PostItemHighlighted } from "../../global/PostItems";
 
 import { HomePostsWrapper, ItemRow, PostsTitle, VerTudoButton } from "./styles";
+import { PostsProps } from "../../../pages";
 
-interface HomePostsProps {
-  content: {
-    attributes: {
-      Title: string;
-      Content: string;
-      Date: string;
-      Picture: PictureProps;
-    };
-    id: number;
+interface LocalPostsProps {
+  localPosts: {
+    id: string;
+    title: string;
+    slug: string;
+    html: string;
+    created_at: string;
   }[];
 }
 
-export function HomePosts({ content }: HomePostsProps) {
+export function HomePosts({ localPosts }: LocalPostsProps) {
   const { t } = useTranslation("posts");
 
   return (
@@ -53,16 +48,11 @@ export function HomePosts({ content }: HomePostsProps) {
           </div>
         </PostsTitle>
         <ItemRow>
-          {content?.map((post, index) => {
+          {localPosts?.map((post, index) => {
             if (index === 0) {
-              return (
-                <PostItemHighlighted
-                  id={post.id}
-                  attributes={post.attributes}
-                />
-              );
+              return <PostItemHighlighted key={index} content={post} />;
             } else {
-              return <PostItem id={post.id} attributes={post.attributes} />;
+              return <PostItem key={index} content={post} />;
             }
           })}
 

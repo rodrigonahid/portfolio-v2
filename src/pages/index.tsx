@@ -1,6 +1,5 @@
 import Head from "next/head";
 
-import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { Carousel } from "../components/home/Carousel";
@@ -8,30 +7,32 @@ import { ContactSection } from "../components/home/ContactSection";
 import { Hero } from "../components/home/Hero";
 import { HomePosts } from "../components/home/HomePosts";
 import { Tecnologias } from "../components/home/Tecnologias";
-import { PictureProps } from "../components/global/PostItems";
-import { getPostsHome } from "../services/api";
+import { getPosts } from "../services/api";
 import { Header } from "../components/global/Header";
 import { Footer } from "../components/global/Footer";
 
 export interface staticProps {
   locale: string;
 }
-interface postsProps {
+export interface PostsProps {
   posts: {
-    data: {
-      attributes: {
-        Title: string;
-        Content: string;
-        Date: string;
-        Picture: PictureProps;
-      };
-      id: number;
-    }[];
-    meta: Object;
-  };
+    id: string;
+    title: string;
+    slug: string;
+    html: string;
+    created_at: string;
+  }[];
+  locale: string;
 }
 
-const Home = ({ posts }: postsProps) => {
+const Home = ({ posts, locale }: PostsProps) => {
+  const localPosts = posts.map((item: any) => {
+    if (locale === "pt-BR" && item.primary_tag.slug == "pt-br") {
+      return item;
+    } else if (locale === "en" && item.primary_tag.slug === "en-us") {
+      return item;
+    }
+  });
   return (
     <>
       <Head>
@@ -42,7 +43,7 @@ const Home = ({ posts }: postsProps) => {
       <Hero />
       <Carousel />
       <Tecnologias />
-      <HomePosts content={posts.data} />
+      <HomePosts localPosts={localPosts} />
       <ContactSection />
       <Footer />
     </>
@@ -50,10 +51,11 @@ const Home = ({ posts }: postsProps) => {
 };
 
 export async function getStaticProps({ locale }: staticProps) {
-  const posts = await getPostsHome(locale);
+  const { posts } = await getPosts(locale);
   return {
     props: {
       posts,
+      locale,
       ...(await serverSideTranslations(locale, [
         "common",
         "header",
