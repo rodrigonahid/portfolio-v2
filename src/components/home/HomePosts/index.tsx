@@ -5,19 +5,19 @@ import { Container } from "../../../styles/grid";
 import { PostItem, PostItemHighlighted } from "../../global/PostItems";
 
 import { HomePostsWrapper, ItemRow, PostsTitle, VerTudoButton } from "./styles";
-import { PostsProps } from "../../../pages";
 
-interface LocalPostsProps {
-  localPosts: {
+interface PostsProps {
+  posts: {
     id: string;
     title: string;
     slug: string;
     html: string;
     created_at: string;
+    feature_image: string;
   }[];
 }
 
-export function HomePosts({ localPosts }: LocalPostsProps) {
+export function HomePosts({ posts }: PostsProps) {
   const { t } = useTranslation("posts");
 
   return (
@@ -48,11 +48,11 @@ export function HomePosts({ localPosts }: LocalPostsProps) {
           </div>
         </PostsTitle>
         <ItemRow>
-          {localPosts?.map((post, index) => {
+          {posts?.map((post, index) => {
             if (index === 0) {
-              return <PostItemHighlighted key={index} content={post} />;
+              return <PostItemHighlighted key={index} post={post} />;
             } else {
-              return <PostItem key={index} content={post} />;
+              return <PostItem key={index} post={post} />;
             }
           })}
 

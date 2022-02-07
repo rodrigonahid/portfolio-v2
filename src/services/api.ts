@@ -7,11 +7,24 @@ export const api = axios.create({
   },
 });
 
+interface IPosts {
+  data: {
+    posts: {}[];
+  };
+}
+
 export async function getPosts(locale: string) {
   try {
-    const res = await api.get(`/content/posts?include=tags`);
-
-    return res.data;
+    const res: IPosts = await api.get(`/content/posts?include=tags`);
+    console.log(res);
+    const localPosts = res.data.posts.filter((item: any) => {
+      if (locale === "pt-BR" && item.primary_tag.slug == "pt-br") {
+        return item;
+      } else if (locale === "en" && item.primary_tag.slug === "en-us") {
+        return item;
+      }
+    });
+    return localPosts;
   } catch (err: any) {
     return err.message;
   }

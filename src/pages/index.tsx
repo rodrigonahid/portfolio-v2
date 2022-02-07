@@ -21,18 +21,13 @@ export interface PostsProps {
     slug: string;
     html: string;
     created_at: string;
+    feature_image: string;
   }[];
   locale: string;
 }
 
 const Home = ({ posts, locale }: PostsProps) => {
-  const localPosts = posts.map((item: any) => {
-    if (locale === "pt-BR" && item.primary_tag.slug == "pt-br") {
-      return item;
-    } else if (locale === "en" && item.primary_tag.slug === "en-us") {
-      return item;
-    }
-  });
+  console.log(posts);
   return (
     <>
       <Head>
@@ -43,7 +38,7 @@ const Home = ({ posts, locale }: PostsProps) => {
       <Hero />
       <Carousel />
       <Tecnologias />
-      <HomePosts localPosts={localPosts} />
+      <HomePosts posts={posts} />
       <ContactSection />
       <Footer />
     </>
@@ -51,7 +46,7 @@ const Home = ({ posts, locale }: PostsProps) => {
 };
 
 export async function getStaticProps({ locale }: staticProps) {
-  const { posts } = await getPosts(locale);
+  const posts = await getPosts(locale);
   return {
     props: {
       posts,

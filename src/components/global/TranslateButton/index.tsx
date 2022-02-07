@@ -17,6 +17,11 @@ export function TranslateButton() {
   const handleTranslateModal = (event: React.SyntheticEvent) => {
     setIsTranslateModalOpen(!isTranslateModalOpen);
   };
+  const handleChangeLanguage = (e: React.SyntheticEvent, lang: string) => {
+    e.preventDefault();
+    router.push(router.asPath, undefined, { locale: lang });
+    setIsTranslateModalOpen(false);
+  };
 
   return (
     <TranslateWrapper>
@@ -31,25 +36,21 @@ export function TranslateButton() {
       </Translate>
       <TranslateModal isOpen={isTranslateModalOpen}>
         <Language>
-          <Link href={router.asPath} locale="pt-BR">
-            <a onClick={handleTranslateModal}>
-              <Image
-                src="/flags/Brazil.svg"
-                width="16"
-                height="12"
-                alt="brazil"
-              />
-              <p>Português</p>
-            </a>
-          </Link>
+          <a onClick={(e) => handleChangeLanguage(e, "pt-BR")}>
+            <Image
+              src="/flags/Brazil.svg"
+              width="16"
+              height="12"
+              alt="brazil"
+            />
+            <p>Português</p>
+          </a>
         </Language>
         <Language>
-          <Link href={router.asPath} locale="en">
-            <a onClick={handleTranslateModal}>
-              <Image src="/flags/USA.svg" width="16" height="12" alt="usa" />
-              <p>English</p>
-            </a>
-          </Link>
+          <a onClick={(e) => handleChangeLanguage(e, "en")}>
+            <Image src="/flags/USA.svg" width="16" height="12" alt="usa" />
+            <p>English</p>
+          </a>
         </Language>
       </TranslateModal>
     </TranslateWrapper>
