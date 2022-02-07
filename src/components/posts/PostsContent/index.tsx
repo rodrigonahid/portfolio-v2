@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 import { Container } from "../../../styles/grid";
-import { PictureProps, PostItemHighlighted } from "../../global/PostItems";
+import { PostItemHighlighted } from "../../global/PostItems";
 import { PostContentOffset, PostsContentWrapper } from "./styles";
 
 interface PostsProps {
   posts: {
-    attributes: {
-      Title: string;
-      Content: string;
-      Date: string;
-      Picture: PictureProps;
-    };
-    id: number;
+    id: string;
+    title: string;
+    slug: string;
+    html: string;
+    created_at: string;
+    feature_image: string;
   }[];
 }
 
 export function PostsContent({ posts }: PostsProps) {
   const [isLoading, setIsLoading] = useState(false);
+  console.log(posts);
   useEffect(() => {
     if (posts) {
       setIsLoading(true);
@@ -29,11 +29,7 @@ export function PostsContent({ posts }: PostsProps) {
         {isLoading && (
           <PostContentOffset>
             {posts.map((post) => (
-              <PostItemHighlighted
-                key={post.id}
-                attributes={post.attributes}
-                id={post.id}
-              />
+              <PostItemHighlighted key={post.id} post={post} />
             ))}
           </PostContentOffset>
         )}

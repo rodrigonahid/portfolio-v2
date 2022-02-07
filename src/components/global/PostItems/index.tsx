@@ -9,6 +9,7 @@ interface attributesProps {
   post: {
     id: string;
     title: string;
+    slug: string;
     html: string;
     created_at: string;
     feature_image: string;

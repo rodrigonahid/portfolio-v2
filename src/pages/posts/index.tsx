@@ -1,8 +1,8 @@
+import Head from "next/head";
+
 import { PostsHeader } from "../../components/posts/PostsHeader";
 import { PostsContent } from "../../components/posts/PostsContent";
-import Head from "next/head";
 import { getPosts } from "../../services/api";
-import { PictureProps } from "../../components/global/PostItems";
 import { Header } from "../../components/global/Header";
 import { Footer } from "../../components/global/Footer";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -10,16 +10,13 @@ import { staticProps } from "..";
 
 interface PostsProps {
   posts: {
-    data: {
-      attributes: {
-        Title: string;
-        Content: string;
-        Date: string;
-        Picture: PictureProps;
-      };
-      id: number;
-    }[];
-  };
+    id: string;
+    title: string;
+    slug: string;
+    html: string;
+    created_at: string;
+    feature_image: string;
+  }[];
 }
 
 export default function Posts({ posts }: PostsProps) {
@@ -30,7 +27,7 @@ export default function Posts({ posts }: PostsProps) {
       </Head>
       <Header />
       <PostsHeader />
-      <PostsContent posts={posts.data} />
+      <PostsContent posts={posts} />
       <Footer />
     </>
   );

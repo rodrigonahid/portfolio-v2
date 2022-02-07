@@ -3,7 +3,6 @@ import Head from "next/head";
 import { Footer } from "../../components/global/Footer";
 import { Header } from "../../components/global/Header";
 
-import { PictureProps } from "../../components/global/PostItems";
 import { PostsSingleContent } from "../../components/posts/PostsSingleContent";
 import { PostsSingleHeader } from "../../components/posts/PostsSingleHeader";
 import { getAllPosts, getPosts, getSinglePost } from "../../services/api";
@@ -21,7 +20,6 @@ interface PostItemProps {
       Title: string;
       Content: string;
       Date: string;
-      Picture: PictureProps;
     };
   };
 }
@@ -41,8 +39,8 @@ export default function PostItem({ singlePost }: PostItemProps) {
       </Head>
 
       <Header />
-      <PostsSingleHeader attributes={singlePost.attributes} />
-      <PostsSingleContent attributes={singlePost.attributes} />
+      {/* <PostsSingleHeader attributes={singlePost.attributes} />
+      <PostsSingleContent attributes={singlePost.attributes} /> */}
       <Footer />
     </>
   );

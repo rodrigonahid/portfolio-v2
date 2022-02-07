@@ -41,10 +41,20 @@ export async function getPostsHome(locale: string) {
   }
 }
 
-export async function getSinglePost(id: string) {
+export async function getSinglePost(locale: string, slug: string) {
   try {
-    const res = await api.get(`/posts/${id}?populate=%2A`);
-    return res.data;
+    const res = await api.get(`/content/posts/slug/${slug}?include=tags`);
+
+    const localPosts = res.data.posts.filter((item: any) => {
+      if (locale === "pt-BR" && item.primary_tag.slug == "pt-br") {
+        return item;
+      } else if (locale === "en" && item.primary_tag.slug === "en-us") {
+        return item;
+      }
+    });
+
+    return localPosts;
+    return res.data.posts;
   } catch (err: any) {
     return err.message;
   }
