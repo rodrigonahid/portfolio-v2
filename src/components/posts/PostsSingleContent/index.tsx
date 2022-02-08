@@ -1,6 +1,6 @@
 import Image from "next/image";
+
 import { Container } from "../../../styles/grid";
-import { PictureProps } from "../../global/PostItems";
 import { ApiVariableContext } from "../../../contexts/apiVariable";
 
 import {
@@ -8,30 +8,30 @@ import {
   PostSingleHeaderContent,
   PostsSingleContentWrapper,
 } from "./styles";
-import { useContext } from "react";
+import HTMLReactParser from "html-react-parser";
 
 interface PostsSingleContentProps {
-  attributes: {
-    Content: string;
-    Picture: PictureProps;
+  singlePost: {
+    feature_image: string;
+    html: string;
   };
 }
 
-export function PostsSingleContent({ attributes }: PostsSingleContentProps) {
-  const api = useContext(ApiVariableContext);
-
+export function PostsSingleContent({ singlePost }: PostsSingleContentProps) {
   return (
     <PostsSingleContentWrapper>
       <Container>
         <ImageWrapper>
           <Image
-            src={api + attributes.Picture.data.attributes.url}
+            src={singlePost.feature_image}
             layout="fill"
             objectFit="contain"
             alt="placeholder img"
           />
         </ImageWrapper>
-        <PostSingleHeaderContent>{attributes.Content}</PostSingleHeaderContent>
+        <PostSingleHeaderContent>
+          {HTMLReactParser(singlePost.html)}
+        </PostSingleHeaderContent>
       </Container>
     </PostsSingleContentWrapper>
   );

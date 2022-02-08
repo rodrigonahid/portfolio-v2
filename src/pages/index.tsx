@@ -27,7 +27,6 @@ export interface PostsProps {
 }
 
 const Home = ({ posts, locale }: PostsProps) => {
-  console.log(posts);
   return (
     <>
       <Head>

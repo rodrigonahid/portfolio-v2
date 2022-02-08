@@ -5,63 +5,72 @@ import { Header } from "../../components/global/Header";
 
 import { PostsSingleContent } from "../../components/posts/PostsSingleContent";
 import { PostsSingleHeader } from "../../components/posts/PostsSingleHeader";
-import { getAllPosts, getPosts, getSinglePost } from "../../services/api";
+import { getAllPosts, getSinglePost } from "../../services/api";
 
 interface StaticPros {
   params: {
-    id: string;
+    slug: string;
   };
   locale: string;
 }
 
 interface PostItemProps {
   singlePost: {
-    attributes: {
-      Title: string;
-      Content: string;
-      Date: string;
-    };
+    title: string;
+    created_at: string;
+    feature_image: string;
+    html: string;
   };
 }
 
 interface Path {
-  id: number;
-  attributes: {
-    locale: string;
+  slug: string;
+  primary_tag: {
+    name: string;
   };
 }
 
 export default function PostItem({ singlePost }: PostItemProps) {
+  console.log(singlePost);
   return (
     <>
       <Head>
-        <title>Rodrigo Nahid | {singlePost.attributes.Title}</title>
+        <title>Rodrigo Nahid | {singlePost.title}</title>
       </Head>
 
       <Header />
-      {/* <PostsSingleHeader attributes={singlePost.attributes} />
-      <PostsSingleContent attributes={singlePost.attributes} /> */}
+      <PostsSingleHeader singlePost={singlePost} />
+      <PostsSingleContent singlePost={singlePost} />
       <Footer />
     </>
   );
 }
 
 export async function getStaticPaths() {
-  const { data } = await getAllPosts();
+  const { posts } = await getAllPosts();
+
+  const setLocale = (locale: string) => {
+    if (locale === "English") {
+      return "en";
+    }
+    if (locale === "Portuguese") {
+      return "pt-BR";
+    }
+  };
 
   return {
     // paths: [{ params: { id: `${i}` }, locale: "en" }]
-    paths: data.map((item: Path) => ({
-      params: { id: `${item.id}` },
-      locale: item.attributes.locale,
+    paths: posts.map((item: Path) => ({
+      params: { slug: `${item.slug}` },
+      locale: setLocale(item.primary_tag.name),
     })),
     fallback: false,
   };
 }
 
 export async function getStaticProps({ params, locale }: StaticPros) {
-  const { data } = await getSinglePost(params.id);
-
+  const data = await getSinglePost(locale, params.slug);
+  console.log(data);
   return {
     props: {
       singlePost: data ?? null,

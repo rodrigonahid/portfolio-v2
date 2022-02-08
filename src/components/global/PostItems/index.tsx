@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 import HTMLReactParser from "html-react-parser";
 
 import { ItemHightlightedWrapper, ItemWrapper } from "./styles";
+import formatDate from "../../../utils/formatDate";
 
 interface attributesProps {
   post: {
@@ -17,14 +18,7 @@ interface attributesProps {
 }
 
 export function PostItemHighlighted({ post }: attributesProps) {
-  console.log(post);
   const { t } = useTranslation("posts");
-
-  const formatDate = (timestamp: string) => {
-    const date = timestamp.split("T");
-    const formatted = date[0].replaceAll("-", "/");
-    return formatted;
-  };
 
   return (
     <ItemHightlightedWrapper>
@@ -35,18 +29,22 @@ export function PostItemHighlighted({ post }: attributesProps) {
         </div>
         <span className="bottom">
           <p>{formatDate(post.created_at)}</p>
-          <Link href={`/posts/${post.id}`}>
+          <Link href={`/posts/${post.slug}`}>
             <a>{t("singleLink")}</a>
           </Link>
         </span>
       </div>
       <div className="img-wrapper">
-        <Image
-          src={post.feature_image}
-          alt="placeholder img"
-          layout="fill"
-          objectFit="cover"
-        />
+        <Link href={`/posts/${post.slug}`}>
+          <a>
+            <Image
+              src={post.feature_image}
+              alt="placeholder img"
+              layout="fill"
+              objectFit="cover"
+            />
+          </a>
+        </Link>
       </div>
     </ItemHightlightedWrapper>
   );
@@ -62,8 +60,8 @@ export function PostItem({ post }: attributesProps) {
         {post.html}
       </div>
       <span className="bottom">
-        <p>{post.created_at}</p>
-        <Link href={`/posts/${post.id}`}>
+        <p>{formatDate(post.created_at)}</p>
+        <Link href={`/posts/${post.slug}`}>
           <a>{t("singleLink")}</a>
         </Link>
       </span>

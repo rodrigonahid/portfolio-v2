@@ -16,7 +16,7 @@ interface PostsProps {
 
 export function PostsContent({ posts }: PostsProps) {
   const [isLoading, setIsLoading] = useState(false);
-  console.log(posts);
+
   useEffect(() => {
     if (posts) {
       setIsLoading(true);
