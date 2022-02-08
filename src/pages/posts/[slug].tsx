@@ -31,7 +31,6 @@ interface Path {
 }
 
 export default function PostItem({ singlePost }: PostItemProps) {
-  console.log(singlePost);
   return (
     <>
       <Head>
@@ -70,7 +69,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, locale }: StaticPros) {
   const data = await getSinglePost(locale, params.slug);
-  console.log(data);
+
   return {
     props: {
       singlePost: data ?? null,

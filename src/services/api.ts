@@ -43,7 +43,6 @@ export async function getPostsHome(locale: string) {
 
 export async function getSinglePost(locale: string, slug: string) {
   try {
-    console.log(slug);
     const res = await api.get(`/content/posts/slug/${slug}?include=tags`);
     const localPosts = res.data.posts.filter((item: any) => {
       if (locale === "pt-BR" && item.primary_tag.slug == "pt-br") {
