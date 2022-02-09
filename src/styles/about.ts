@@ -10,14 +10,12 @@ export const AboutWrapper = styled.section`
 export const AboutContainer = styled(Container)`
   display: flex;
   justify-content: center;
-  margin: 0 -8px;
+  margin: 0 auto;
 
   height: 80vh;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     height: 75vh;
-
-    margin: 0 auto;
   }
 `;
 
