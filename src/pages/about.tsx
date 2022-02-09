@@ -1,6 +1,10 @@
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Image from "next/image";
+import Link from "next/link";
+import { staticProps } from ".";
 import { Footer } from "../components/global/Footer";
 import { Header } from "../components/global/Header";
+import { getPosts } from "../services/api";
 import {
   AboutWrapper,
   AboutContainer,
@@ -54,36 +58,52 @@ export default function About() {
             <h3>Acompanhe meu trabalho no:</h3>
             <ul>
               <li>
-                <Image
+                <Link href="https://www.linkedin.com/in/rodrigo-nahid/">
+                  <a target="_blank">
+                  <Image
                   src="/social-icons/linkedin.svg"
                   height={40}
                   width={40}
                   alt="linkedin"
                 />
+                  </a>
+                </Link>
               </li>
               <li>
-                <Image
-                  src="/social-icons/instagram.svg"
-                  height={40}
-                  width={40}
-                  alt="instagram"
-                />
+                <Link href="https://www.instagram.com/rodrigonahid1/">
+                  <a target="_blank">
+                  <Image
+                    src="/social-icons/instagram.svg"
+                    height={40}
+                    width={40}
+                    alt="instagram"
+                  />
+                  </a>
+                </Link>
               </li>
               <li>
+               <Link href="https://www.youtube.com/channel/UCwvXKJT8-9ZPitA7p34K9M">
+                <a target="_blank">
                 <Image
                   src="/social-icons/youtube.svg"
                   height={40}
                   width={40}
                   alt="youtube"
                 />
+                </a>
+               </Link>
               </li>
               <li>
-                <Image
-                  src="/social-icons/github.svg"
-                  height={40}
-                  width={40}
-                  alt="github"
-                />
+                <Link href="https://github.com/rodrigonahid">
+                  <a target="_blank">
+                    <Image
+                      src="/social-icons/github.svg"
+                      height={40}
+                      width={40}
+                      alt="github"
+                    />
+                  </a>
+                </Link>
               </li>
             </ul>
           </SocialIcons>
@@ -92,4 +112,18 @@ export default function About() {
       <Footer />
     </>
   );
+}
+export async function getStaticProps({ locale }: staticProps) {
+  const posts = await getPosts(locale);
+  console.log(posts);
+  return {
+    props: {
+      posts,
+      locale,
+      ...(await serverSideTranslations(locale, [
+        "header",
+        "footer",
+      ])),
+    },
+  };
 }

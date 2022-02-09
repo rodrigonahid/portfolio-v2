@@ -3,8 +3,12 @@ import styled from "styled-components";
 import { Container } from "./grid";
 
 export const AboutWrapper = styled.section`
-  height: 95vh;
+  
   background-color: var(--gray-800);
+  padding: 15vh 0;
+  @media screen and (max-width: 768px){
+    padding: 10vh 0;
+  }
 `;
 
 export const AboutContainer = styled(Container)`
@@ -12,10 +16,8 @@ export const AboutContainer = styled(Container)`
   justify-content: center;
   margin: 0 auto;
 
-  height: 80vh;
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    height: 75vh;
   }
 `;
 
@@ -24,11 +26,13 @@ export const ContentWrapper = styled.div`
 
   margin: auto 8px;
 
-  height: 40vh;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media screen and (max-width: 768px){
+    margin: 0 8px;
+  }
   h1 {
     font-style: normal;
     font-weight: bold;
@@ -63,7 +67,9 @@ export const ImageWrapper = styled.div`
   align-items: center;
 
   margin: 0 8px;
-
+  @media screen and (max-width: 768px){
+    margin: 0 0 48px 0;
+  }
   .img-wrapper {
     display: block;
     position: relative;
@@ -85,8 +91,8 @@ export const ImageWrapper = styled.div`
       background-color: var(--gray-600);
     }
     @media screen and (max-width: 768px) {
-      height: 30vh;
-      width: 30vh;
+      height: 80vw;
+      width: 80vw;
     }
   }
 `;
@@ -121,6 +127,11 @@ export const DownloadButton = styled.a`
   }
   span {
     margin-left: 14px;
+  }
+  margin-top: 48px;
+  @media screen and (max-width: 768px){
+  margin-top: 36px;
+  width: 100%;
   }
 `;
 
