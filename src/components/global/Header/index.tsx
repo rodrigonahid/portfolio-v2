@@ -14,7 +14,6 @@ import {
   LogoWrapper,
   RightSide,
 } from "./styles";
-import { useEffect } from "react";
 
 export function Header() {
   const router = useRouter();
@@ -40,11 +39,16 @@ export function Header() {
                 Posts
               </a>
             </Link>
-            <Link href="/contact">
+            <Link href="/about">
+              <a className={router.pathname == "/about" ? "active" : ""}>
+                {t("about")}
+              </a>
+            </Link>
+            {/* <Link href="/contact">
               <a className={router.pathname == "/contact" ? "active" : ""}>
                 {t("contact")}
               </a>
-            </Link>
+            </Link> */}
           </Nav>
 
           <RightSide>

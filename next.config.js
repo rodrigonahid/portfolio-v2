@@ -7,7 +7,11 @@ const nextConfig = {
     API_URL: process.env.API_URL,
   },
   images: {
-    domains: ["localhost", "first-commit.ghost.io"],
+    domains: [
+      "localhost",
+      "first-commit.ghost.io",
+      "avatars.githubusercontent.com",
+    ],
   },
   i18n,
 };

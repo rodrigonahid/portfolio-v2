@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 import { Logo } from "../Header/styles";
 import { SidebarItem } from "../../home/SidebarItem";
@@ -14,6 +15,7 @@ import {
 } from "./style";
 
 export function BurgerMenu() {
+  const { t } = useTranslation("header");
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = (e: React.SyntheticEvent) => {
@@ -66,11 +68,17 @@ export function BurgerMenu() {
               onClick={handleClose}
             />
             <SidebarItem
+              active={router.pathname === "/about" && true}
+              name={t("about")}
+              href="/about"
+              onClick={handleClose}
+            />
+            {/* <SidebarItem
               active={router.pathname === "/contact" && true}
               name="Contato"
               href="/contact"
               onClick={handleClose}
-            />
+            /> */}
           </SidebarList>
         </SidebarHeader>
       </SidebarMenu>
