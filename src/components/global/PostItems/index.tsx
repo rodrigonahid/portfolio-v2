@@ -28,7 +28,7 @@ export function PostItemHighlighted({ post }: attributesProps) {
           {HTMLReactParser(post.html)}
         </div>
         <span className="bottom">
-          <p>{formatDate(post.created_at)}</p>
+          <p>{post.created_at}</p>
           <Link href={`/posts/${post.slug}`}>
             <a>{t("singleLink")}</a>
           </Link>
@@ -60,7 +60,7 @@ export function PostItem({ post }: attributesProps) {
         {post.html}
       </div>
       <span className="bottom">
-        <p>{formatDate(post.created_at)}</p>
+        <p>{post.created_at}</p>
         <Link href={`/posts/${post.slug}`}>
           <a>{t("singleLink")}</a>
         </Link>

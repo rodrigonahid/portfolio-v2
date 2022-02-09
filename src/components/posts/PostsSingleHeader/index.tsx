@@ -18,7 +18,7 @@ export function PostsSingleHeader({ singlePost }: PostSingleHeaderProps) {
         <PostSingleHeaderWrapper>
           <h1>{singlePost.title}</h1>
           <p>
-            {t("postedAt")} <span>{formatDate(singlePost.created_at)}</span>
+            {t("postedAt")} <span>{singlePost.created_at}</span>
           </p>
         </PostSingleHeaderWrapper>
       </Container>
