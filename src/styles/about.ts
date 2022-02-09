@@ -10,17 +10,22 @@ export const AboutWrapper = styled.section`
 export const AboutContainer = styled(Container)`
   display: flex;
   justify-content: center;
+  margin: 0 -8px;
 
   height: 80vh;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     height: 75vh;
+
+    margin: 0 auto;
   }
 `;
 
 export const ContentWrapper = styled.div`
   flex: 1;
-  margin: auto;
+
+  margin: auto 8px;
+
   height: 40vh;
 
   display: flex;
@@ -59,6 +64,8 @@ export const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  margin: 0 8px;
+
   .img-wrapper {
     display: block;
     position: relative;
@@ -74,8 +81,9 @@ export const ImageWrapper = styled.div`
       position: absolute;
       height: 100%;
       width: 100%;
-      top: 10px;
-      left: 10px;
+      top: 8px;
+      left: 8px;
+      border-radius: 10px;
       background-color: var(--gray-600);
     }
     @media screen and (max-width: 768px) {
@@ -122,7 +130,7 @@ export const SocialIcons = styled.div`
   text-align: center;
   h3 {
     color: var(--gray-700);
-    margin-bottom: 8px;
+    margin-bottom: 16px;
   }
   ul {
     display: flex;

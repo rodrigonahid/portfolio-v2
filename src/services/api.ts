@@ -61,7 +61,8 @@ export async function getSinglePost(locale: string, slug: string) {
 export async function getAllPosts() {
   try {
     const res = await api.get("/content/posts?include=tags");
-    return res.data;
+
+    return res.data.posts;
   } catch (err: any) {
     return err.message;
   }
