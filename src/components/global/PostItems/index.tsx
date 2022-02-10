@@ -13,7 +13,7 @@ interface attributesProps {
     slug: string;
     html: string;
     created_at: string;
-    feature_image: string;
+    feature_image?: string;
   };
 }
 
@@ -35,16 +35,18 @@ export function PostItemHighlighted({ post }: attributesProps) {
         </span>
       </div>
       <div className="img-wrapper">
-        <Link href={`/posts/${post.slug}`}>
-          <a>
-            <Image
-              src={post.feature_image}
-              alt="placeholder img"
-              layout="fill"
-              objectFit="cover"
-            />
-          </a>
-        </Link>
+        {post.feature_image &&
+          <Link href={`/posts/${post.slug}`}>
+            <a>
+              <Image
+                src={post.feature_image}
+                alt={post.slug}
+                layout="fill"
+                objectFit="cover"
+              />
+            </a>
+          </Link>
+        }
       </div>
     </ItemHightlightedWrapper>
   );
@@ -57,7 +59,7 @@ export function PostItem({ post }: attributesProps) {
     <ItemWrapper>
       <div className="top">
         <h3>{post.title}</h3>
-        {post.html}
+        {HTMLReactParser(post.html)}
       </div>
       <span className="bottom">
         <p>{post.created_at}</p>

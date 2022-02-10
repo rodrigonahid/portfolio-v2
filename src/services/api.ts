@@ -16,7 +16,6 @@ interface IPosts {
 export async function getPosts(locale: string) {
   try {
     const res: IPosts = await api.get(`/content/posts?include=tags`);
-
     const localPosts = res.data.posts.filter((item: any) => {
       if (locale === "pt-BR" && item.primary_tag.slug == "pt-br") {
         return item;
@@ -30,16 +29,16 @@ export async function getPosts(locale: string) {
   }
 }
 
-export async function getPostsHome(locale: string) {
-  try {
-    const res = await api.get(
-      `/posts?pagination[pageSize]=4&populate=%2A&locale=${locale}`
-    );
-    return res.data;
-  } catch (err: any) {
-    return err.message;
-  }
-}
+// export async function getPostsHome(locale: string) {
+//   try {
+//     const res = await api.get(
+//       `/posts?pagination[pageSize]=4&populate=%2A&locale=${locale}`
+//     );
+//     return res.data;
+//   } catch (err: any) {
+//     return err.message;
+//   }
+// }
 
 export async function getSinglePost(locale: string, slug: string) {
   try {

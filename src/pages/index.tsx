@@ -27,6 +27,8 @@ export interface PostsProps {
 }
 
 const Home = ({ posts, locale }: PostsProps) => {
+  
+
   return (
     <>
       <Head>
@@ -46,6 +48,7 @@ const Home = ({ posts, locale }: PostsProps) => {
 
 export async function getStaticProps({ locale }: staticProps) {
   const posts = await getPosts(locale);
+  
   return {
     props: {
       posts,

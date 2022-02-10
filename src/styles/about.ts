@@ -3,10 +3,9 @@ import styled from "styled-components";
 import { Container } from "./grid";
 
 export const AboutWrapper = styled.section`
-  
   background-color: var(--gray-800);
   padding: 15vh 0;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     padding: 10vh 0;
   }
 `;
@@ -26,11 +25,10 @@ export const ContentWrapper = styled.div`
 
   margin: auto 8px;
 
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     margin: 0 8px;
   }
   h1 {
@@ -67,7 +65,7 @@ export const ImageWrapper = styled.div`
   align-items: center;
 
   margin: 0 8px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     margin: 0 0 48px 0;
   }
   .img-wrapper {
@@ -129,9 +127,9 @@ export const DownloadButton = styled.a`
     margin-left: 14px;
   }
   margin-top: 48px;
-  @media screen and (max-width: 768px){
-  margin-top: 36px;
-  width: 100%;
+  @media screen and (max-width: 768px) {
+    margin-top: 36px;
+    width: 100%;
   }
 `;
 
@@ -148,6 +146,7 @@ export const SocialIcons = styled.div`
       margin: 0 6px;
     }
   }
+  margin-top: 8vh;
   @media screen and (max-width: 768px) {
     margin: 32px 0;
   }

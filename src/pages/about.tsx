@@ -115,7 +115,7 @@ export default function About() {
 }
 export async function getStaticProps({ locale }: staticProps) {
   const posts = await getPosts(locale);
-  console.log(posts);
+  
   return {
     props: {
       posts,

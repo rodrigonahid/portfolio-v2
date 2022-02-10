@@ -47,7 +47,7 @@ export default function PostItem({ singlePost }: PostItemProps) {
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
-  console.log(posts);
+
 
   const setLocale = (locale: string) => {
     if (locale === "English") {
