@@ -18,7 +18,6 @@ interface PostsProps {
 }
 
 export function HomePosts({ posts }: PostsProps) {
-  console.log(posts)
   const { t } = useTranslation("posts");
 
   return (

@@ -44,8 +44,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
-                  <a>Contato</a>
+                <Link href="/about">
+                  <a>{t("about")}</a>
                 </Link>
               </li>
             </ul>

@@ -8,6 +8,7 @@ import Document, {
   DocumentContext,
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import Analytics from "../components/global/Analytics";
 
 // NEXT.JS CUSTOM DOCUMENT
 // https://nextjs.org/docs/advanced-features/custom-document
@@ -51,6 +52,7 @@ export default class MyDocument extends Document {
             href="https://fonts.gstatic.com"
             crossOrigin="true"
           />
+
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
             rel="stylesheet"
