@@ -136,7 +136,7 @@ export const DownloadButton = styled.a`
 export const SocialIcons = styled.div`
   text-align: center;
   h3 {
-    color: var(--gray-700);
+    color: var(--gray-600);
     margin-bottom: 16px;
   }
   ul {

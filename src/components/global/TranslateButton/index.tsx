@@ -8,15 +8,15 @@ import {
   TranslateModal,
   TranslateWrapper,
 } from "./styles";
-import Link from "next/link";
 
 export function TranslateButton() {
   const router = useRouter();
   const [isTranslateModalOpen, setIsTranslateModalOpen] = useState(false);
 
-  const handleTranslateModal = (event: React.SyntheticEvent) => {
+  const handleTranslateModal = () => {
     setIsTranslateModalOpen(!isTranslateModalOpen);
   };
+
   const handleChangeLanguage = (e: React.SyntheticEvent, lang: string) => {
     e.preventDefault();
     router.push(router.asPath, undefined, { locale: lang });

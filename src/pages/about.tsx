@@ -1,3 +1,4 @@
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,6 +17,7 @@ import {
 import { Container } from "../styles/grid";
 
 export default function About() {
+  const { t } = useTranslation("about");
   return (
     <>
       <Header />
@@ -26,17 +28,15 @@ export default function About() {
               <Image
                 src="https://avatars.githubusercontent.com/rodrigonahid"
                 layout="fill"
+                objectFit="cover"
                 alt="profile picture"
               />
             </span>
           </ImageWrapper>
           <ContentWrapper>
             <div>
-              <h1>Sobre mim</h1>
-              <p>
-                Pensando mais a longo prazo, o acompanhamento das preferências
-                de consumo é uma das consequências dos índices pretendidos.
-              </p>
+              <h1>{t("about")}</h1>
+              <p>{t("description")}</p>
             </div>
 
             <div className="button-wrapper">
@@ -48,50 +48,50 @@ export default function About() {
                   width="16"
                 />
 
-                <span>Baixar curriculo</span>
+                <span>{t("download")}</span>
               </DownloadButton>
             </div>
           </ContentWrapper>
         </AboutContainer>
         <Container>
           <SocialIcons>
-            <h3>Acompanhe meu trabalho no:</h3>
+            <h3>{t("follow")}</h3>
             <ul>
               <li>
                 <Link href="https://www.linkedin.com/in/rodrigo-nahid/">
                   <a target="_blank">
-                  <Image
-                  src="/social-icons/linkedin.svg"
-                  height={40}
-                  width={40}
-                  alt="linkedin"
-                />
+                    <Image
+                      src="/social-icons/linkedin.svg"
+                      height={40}
+                      width={40}
+                      alt="linkedin"
+                    />
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="https://www.instagram.com/rodrigonahid1/">
                   <a target="_blank">
-                  <Image
-                    src="/social-icons/instagram.svg"
-                    height={40}
-                    width={40}
-                    alt="instagram"
-                  />
+                    <Image
+                      src="/social-icons/instagram.svg"
+                      height={40}
+                      width={40}
+                      alt="instagram"
+                    />
                   </a>
                 </Link>
               </li>
               <li>
-               <Link href="https://www.youtube.com/channel/UCwvXKJT8-9ZPitA7p34K9M">
-                <a target="_blank">
-                <Image
-                  src="/social-icons/youtube.svg"
-                  height={40}
-                  width={40}
-                  alt="youtube"
-                />
-                </a>
-               </Link>
+                <Link href="https://www.youtube.com/channel/UCwvXKJT8-9ZPitA7p34K9M">
+                  <a target="_blank">
+                    <Image
+                      src="/social-icons/youtube.svg"
+                      height={40}
+                      width={40}
+                      alt="youtube"
+                    />
+                  </a>
+                </Link>
               </li>
               <li>
                 <Link href="https://github.com/rodrigonahid">
@@ -115,15 +115,12 @@ export default function About() {
 }
 export async function getStaticProps({ locale }: staticProps) {
   const posts = await getPosts(locale);
-  
+
   return {
     props: {
       posts,
       locale,
-      ...(await serverSideTranslations(locale, [
-        "header",
-        "footer",
-      ])),
+      ...(await serverSideTranslations(locale, ["header", "footer", "about"])),
     },
   };
 }

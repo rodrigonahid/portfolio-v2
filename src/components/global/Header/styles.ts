@@ -55,6 +55,7 @@ export const Nav = styled.nav`
     line-height: 1.5rem;
     letter-spacing: 0.04em;
     height: 100%;
+    white-space: nowrap;
 
     &.active {
       color: var(--shape);

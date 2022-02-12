@@ -31,7 +31,7 @@ export function Footer() {
           </FooterLeft>
 
           <FooterCenter>
-            <h3>SiteMap</h3>
+            <h3>Sitemap</h3>
             <ul>
               <li>
                 <Link href="/">
