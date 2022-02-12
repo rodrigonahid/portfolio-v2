@@ -13,7 +13,7 @@ interface PostsProps {
     slug: string;
     html: string;
     created_at: string;
-    feature_image: string;
+    feature_image?: string;
   }[];
 }
 

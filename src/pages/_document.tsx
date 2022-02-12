@@ -8,7 +8,6 @@ import Document, {
   DocumentContext,
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-import Analytics from "../components/global/Analytics";
 
 // NEXT.JS CUSTOM DOCUMENT
 // https://nextjs.org/docs/advanced-features/custom-document
