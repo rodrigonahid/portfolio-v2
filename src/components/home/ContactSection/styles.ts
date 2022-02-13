@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ButtonLink } from "../../../styles/global";
 
 export const ContactSectionWrapper = styled.section`
   background: var(--gray-700);
@@ -34,7 +35,7 @@ export const ContactSectionWrapper = styled.section`
   }
 `;
 
-export const ContactButton = styled.a`
+export const ContactButton = styled(ButtonLink)`
   margin-top: 36px;
 
   display: flex;
@@ -49,21 +50,8 @@ export const ContactButton = styled.a`
   transition: 0.2s;
   cursor: pointer;
 
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-
   color: var(--shape);
   svg {
     margin-right: 12px;
-  }
-
-  &: hover {
-    &:hover {
-      filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.25098)) brightness(0.9);
-      transform: translate(-2px, -2px);
-    }
   }
 `;

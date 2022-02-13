@@ -41,14 +41,16 @@ export default function About() {
 
             <div className="button-wrapper">
               <DownloadButton href="/Curriculo.pdf" download="w3logo">
-                <Image
-                  src="/icons/download.svg"
-                  alt="download"
-                  height="18"
-                  width="16"
-                />
+                <span className="img-wrapper">
+                  <Image
+                    src="/icons/download.svg"
+                    alt="download"
+                    height="18"
+                    width="16"
+                  />
+                </span>
 
-                <span>{t("download")}</span>
+                {t("download")}
               </DownloadButton>
             </div>
           </ContentWrapper>

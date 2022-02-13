@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ButtonLink } from "./global";
 
 import { Container } from "./grid";
 
@@ -95,41 +96,12 @@ export const ImageWrapper = styled.div`
   }
 `;
 
-export const DownloadButton = styled.a`
-  display: inline-block;
-
-  background: var(--blue-500);
-
-  padding: 12px 36px;
-  border-radius: 8px;
-
-  transition: 0.2s;
-  cursor: pointer;
-
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-
-  color: var(--shape);
-  svg {
-    margin-right: 12px;
-  }
-
-  &: hover {
-    &:hover {
-      filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.25098)) brightness(0.9);
-      transform: translate(-2px, -2px);
-    }
-  }
-  span {
-    margin-left: 14px;
-  }
+export const DownloadButton = styled(ButtonLink)`
   margin-top: 48px;
-  @media screen and (max-width: 768px) {
-    margin-top: 36px;
-    width: 100%;
+
+  .img-wrapper {
+    display: flex;
+    align-items: center;
   }
 `;
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ButtonLink } from "../../../styles/global";
 
 export const HomePostsWrapper = styled.section`
   background: var(--gray-800);
@@ -56,32 +57,4 @@ export const ItemRow = styled.div`
   }
 `;
 
-export const VerTudoButton = styled.a`
-  background: var(--blue-500);
-  width: 186px;
-  padding: 12px;
-  border-radius: 8px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: 0.2s;
-  white-space: nowrap;
-
-  &:hover {
-    &:hover {
-      filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.25098)) brightness(0.8);
-      transform: translate(-2px, -2px);
-    }
-  }
-
-  span {
-    margin-right: 12px;
-
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.25rem;
-    line-height: 1.5rem;
-  }
-`;
+export const VerTudoButton = styled(ButtonLink)``;

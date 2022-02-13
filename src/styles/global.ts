@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root {
@@ -38,4 +38,102 @@ export const GlobalStyle = createGlobalStyle`
         color: var(--shape);
         text-decoration: none;
     }
+`;
+
+export const ButtonLink = styled.a`
+  background: var(--blue-500);
+  min-width: 186px;
+  padding: 12px;
+  border-radius: 8px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.2s;
+  white-space: nowrap;
+
+  filter: drop-shadow(3px 3px 0px rgba(36, 105, 232, 0.2));
+  transform: translate(-2px, -2px);
+  @media screen and (min-width: 768px) {
+    &:hover {
+      transform: translate(0);
+      filter: none;
+    }
+    &:active {
+      filter: opacity(0.7);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    &:active {
+      transform: translate(0);
+      filter: none;
+    }
+  }
+
+  span,
+  img,
+  svg {
+    margin-right: 12px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+`;
+
+export const Button = styled.button`
+  background: var(--blue-500);
+  width: 186px;
+  padding: 12px;
+  border-radius: 8px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.2s;
+  white-space: nowrap;
+
+  filter: drop-shadow(3px 3px 0px rgba(36, 105, 232, 0.2));
+  transform: translate(-2px, -2px);
+  @media screen and (min-width: 768px) {
+    &:hover {
+      transform: translate(0);
+      filter: none;
+    }
+    &:active {
+      filter: opacity(0.7);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    &:active {
+      transform: translate(0);
+      filter: none;
+    }
+  }
+
+  span,
+  img,
+  svg {
+    margin-right: 12px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
 `;

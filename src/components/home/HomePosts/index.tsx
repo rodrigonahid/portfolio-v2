@@ -59,7 +59,7 @@ export function HomePosts({ posts }: PostsProps) {
           <span className="button-link">
             <Link href="/posts" passHref>
               <VerTudoButton>
-                <span>{t("button")}</span>
+                {t("button")}
                 <svg
                   width="11"
                   height="20"
