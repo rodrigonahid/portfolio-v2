@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ItemWrapper = styled.li`
+export const ItemWrapper = styled.div`
   list-style: none;
   text-align: center;
 
@@ -34,6 +34,7 @@ export const ItemWrapper = styled.li`
 
   @media screen and (max-width: 768px) {
     min-width: 200px;
+    width: 70%;
 
     &:first-child {
       margin-left: 20px;

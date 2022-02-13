@@ -48,4 +48,11 @@ export const SwiperWrapper = styled.div`
   .swiper-pagination {
     bottom: 0px !important;
   }
+  .swiper-pagination-bullet {
+    background-color: var(--gray-300) !important;
+    opacity: 1 !important;
+    &-active {
+      background-color: var(--blue-500) !important;
+    }
+  }
 `;

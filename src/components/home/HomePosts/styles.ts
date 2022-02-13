@@ -57,4 +57,8 @@ export const ItemRow = styled.div`
   }
 `;
 
-export const VerTudoButton = styled(ButtonLink)``;
+export const VerTudoButton = styled(ButtonLink)`
+  svg {
+    margin: 0 0 0 8px;
+  }
+`;

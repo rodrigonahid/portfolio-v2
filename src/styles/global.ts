@@ -59,7 +59,7 @@ export const ButtonLink = styled.a`
   transition: 0.2s;
   white-space: nowrap;
 
-  filter: drop-shadow(3px 3px 0px rgba(36, 105, 232, 0.2));
+  filter: drop-shadow(3px 3px 0px rgba(36, 105, 232, 0.4));
   transform: translate(-2px, -2px);
   @media screen and (min-width: 768px) {
     &:hover {

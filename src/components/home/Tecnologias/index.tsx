@@ -2,10 +2,22 @@ import { useTranslation } from "next-i18next";
 
 import { TecnologiasItem } from "../TecnologiasItem";
 import {
-  ListagemTecnologias,
+  ListagemTecnologiasDesktop,
+  ListagemTecnologiasMobile,
   TecnologiasTitle,
   TecnologiasWrapper,
 } from "./styles";
+
+// Import Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import { Autoplay } from "swiper";
 
 const lista = [
   { image: "/typescript.svg", name: "TypeScript" },
@@ -22,15 +34,34 @@ export function Tecnologias() {
   return (
     <TecnologiasWrapper>
       <TecnologiasTitle>{t("techs")}</TecnologiasTitle>
-      <ListagemTecnologias>
+      {/* Desktop */}
+      <ListagemTecnologiasDesktop>
         {lista.map((item, index) => (
-          <TecnologiasItem
-            key={index}
-            imageName={item.name}
-            imageSrc={item.image}
-          />
+          <li key={index}>
+            <TecnologiasItem imageName={item.name} imageSrc={item.image} />
+          </li>
         ))}
-      </ListagemTecnologias>
+      </ListagemTecnologiasDesktop>
+      {/* Mobile */}
+      <ListagemTecnologiasMobile>
+        <Swiper
+          slidesPerView={"auto"}
+          spaceBetween={20}
+          freeMode={true}
+          autoplay={{
+            delay: 1200,
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay]}
+          className="mySwiper"
+        >
+          {lista.map((item, index) => (
+            <SwiperSlide key={index}>
+              <TecnologiasItem imageName={item.name} imageSrc={item.image} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </ListagemTecnologiasMobile>
     </TecnologiasWrapper>
   );
 }

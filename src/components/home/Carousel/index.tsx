@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination } from "swiper";
+import SwiperCore, { Autoplay, Pagination } from "swiper";
 import { useTranslation } from "next-i18next";
 
 import {
@@ -27,7 +27,15 @@ export function Carousel() {
         <CarouselWrapper>
           <SwiperWrapper>
             <h3>{t("especialidades")}</h3>
-            <Swiper pagination={true} className="mySwiper">
+            <Swiper
+              pagination={true}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              className="mySwiper"
+            >
               <SwiperSlide>
                 <CarouselItem />
               </SwiperSlide>
