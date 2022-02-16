@@ -22,31 +22,43 @@ interface CarouselProps {
 }
 const carouselItemsPortuguese = [
   {
-    url: "",
+    url: "/carousel/code.svg",
     title: "Clean Code",
     description:
       "Desenvolvimento de um código limpo, usando as melhores práticas de desenvolvimento do mercado",
   },
   {
-    url: "",
+    url: "/carousel/center_focus_strong.svg",
     title: "Pixel Perfect",
     description:
       "Meu trabalho como front-end é a codificação de interfaces de alta qualidade, mantendo sempre a fidelidade com o wireframe e prezando pela responsividade",
+  },
+  {
+    url: "/carousel/assignment.svg",
+    title: "Metodologia",
+    description:
+      "Utilizo de práticas para gestão de projetos que oferecem mais rapidez, eficiência e agilidade para o desenvolvimento das aplicações",
   },
 ];
 
 const carouselItemsEnglish = [
   {
-    url: "",
+    url: "/carousel/code.svg",
     title: "Clean Code",
     description:
       "I develop a Clean Code, caring about the good practices used by the market",
   },
   {
-    url: "",
+    url: "/carousel/center_focus_strong.svg",
     title: "Pixel Perfect",
     description:
-      "My work as a front-end is to codehigh quality interfaces, keeping the fidelity with the wireframe and caring about responsivity",
+      "My work as a front-end is to code high quality interfaces, keeping the fidelity with the wireframe and caring about responsivity",
+  },
+  {
+    url: "/carousel/assignment.svg",
+    title: "Methodology",
+    description:
+      "I use practices for project management that offer more speed, efficiency and agility for the development of applications",
   },
 ];
 
