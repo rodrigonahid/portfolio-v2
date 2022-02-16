@@ -17,9 +17,42 @@ import { Container } from "../../../styles/grid";
 
 SwiperCore.use([Pagination]);
 
-export function Carousel() {
-  const { t } = useTranslation("diferenciais");
+interface CarouselProps {
+  locale: string;
+}
+const carouselItemsPortuguese = [
+  {
+    url: "",
+    title: "Clean Code",
+    description:
+      "Desenvolvimento de um código limpo, usando as melhores práticas de desenvolvimento do mercado",
+  },
+  {
+    url: "",
+    title: "Pixel Perfect",
+    description:
+      "Meu trabalho como front-end é a codificação de interfaces de alta qualidade, mantendo sempre a fidelidade com o wireframe e prezando pela responsividade",
+  },
+];
 
+const carouselItemsEnglish = [
+  {
+    url: "",
+    title: "Clean Code",
+    description:
+      "I develop a Clean Code, caring about the good practices used by the market",
+  },
+  {
+    url: "",
+    title: "Pixel Perfect",
+    description:
+      "My work as a front-end is to codehigh quality interfaces, keeping the fidelity with the wireframe and caring about responsivity",
+  },
+];
+
+export function Carousel({ locale }: CarouselProps) {
+  const { t } = useTranslation("diferenciais");
+  console.log(locale);
   return (
     <Background>
       <CarouselBlock></CarouselBlock>
@@ -36,15 +69,26 @@ export function Carousel() {
               modules={[Autoplay]}
               className="mySwiper"
             >
-              <SwiperSlide>
-                <CarouselItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <CarouselItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <CarouselItem />
-              </SwiperSlide>
+              {locale === "pt-BR" &&
+                carouselItemsPortuguese.map((item, index) => (
+                  <SwiperSlide key={index}>
+                    <CarouselItem
+                      url={item.url}
+                      title={item.title}
+                      description={item.description}
+                    />
+                  </SwiperSlide>
+                ))}
+              {locale === "en" &&
+                carouselItemsEnglish.map((item, index) => (
+                  <SwiperSlide key={index}>
+                    <CarouselItem
+                      url={item.url}
+                      title={item.title}
+                      description={item.description}
+                    />
+                  </SwiperSlide>
+                ))}
             </Swiper>
           </SwiperWrapper>
         </CarouselWrapper>

@@ -2,17 +2,20 @@ import Image from "next/image";
 
 import { CarouselItemWrapper } from "./style";
 
-export function CarouselItem() {
+interface CarouselItemProps {
+  url: string;
+  title: string;
+  description: string;
+}
+
+export function CarouselItem({ url, title, description }: CarouselItemProps) {
   return (
     <CarouselItemWrapper>
       <div className="top">
-        <Image src="/code.svg" width={55} height={55} alt="code icon" />
-        <h4>Clean Code</h4>
+        {/* <Image src={url} width={55} height={55} alt="code icon" /> */}
+        <h4>{title}</h4>
       </div>
-      <p>
-        Desenvolvimento de um código limpo, usando as melhores práticas de
-        desenvolvimento do mercado
-      </p>
+      <p>{description}</p>
     </CarouselItemWrapper>
   );
 }

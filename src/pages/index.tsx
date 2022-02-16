@@ -35,7 +35,7 @@ const Home = ({ posts, locale }: PostsProps) => {
 
       <Header />
       <Hero />
-      <Carousel />
+      <Carousel locale={locale} />
       <Tecnologias />
       <HomePosts posts={posts} />
       <ContactSection />

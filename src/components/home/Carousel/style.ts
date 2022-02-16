@@ -15,7 +15,7 @@ export const CarouselWrapper = styled.div`
   max-width: 600px;
   margin: 0 auto;
   height: 250px;
-  padding: 16px 24px;
+  padding: 16px 0;
 
   margin-top: -13vh;
 
