@@ -52,7 +52,7 @@ const carouselItemsEnglish = [
 
 export function Carousel({ locale }: CarouselProps) {
   const { t } = useTranslation("diferenciais");
-  console.log(locale);
+
   return (
     <Background>
       <CarouselBlock></CarouselBlock>
