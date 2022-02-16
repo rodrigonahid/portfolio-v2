@@ -156,6 +156,11 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
+"@corex/deepmerge@^2.6.148":
+  version "2.6.148"
+  resolved "https://registry.yarnpkg.com/@corex/deepmerge/-/deepmerge-2.6.148.tgz#8fa825d53ffd1cbcafce1b6a830eefd3dcc09dd5"
+  integrity sha512-6QMz0/2h5C3ua51iAnXMPWFbb1QOU1UvSM4bKBw5mzdT+WtLgjbETBBIQZ+Sh9WvEcGwlAt/DEdRpIC3XlDBMA==
+
 "@emotion/is-prop-valid@^0.8.8":
   version "0.8.8"
   resolved "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz"
@@ -1688,7 +1693,7 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimist@^1.2.0:
+minimist@^1.2.0, minimist@^1.2.5:
   version "1.2.5"
   resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
@@ -1725,6 +1730,14 @@ next-i18next@^10.2.0:
     i18next "^21.5.3"
     i18next-fs-backend "^1.0.7"
     react-i18next "^11.8.13"
+
+next-sitemap@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.4.2.tgz#f5b9c344ee8c4757ca72467084621b6158e628a2"
+  integrity sha512-cvcK2oXNpVcxizPN4dSkOwA5/KIOUXrJVaWYuk17YQvbBqQzufhhr2JgqgB4QoG0U7sMlB1RB1VPDAZ78kK0Qw==
+  dependencies:
+    "@corex/deepmerge" "^2.6.148"
+    minimist "^1.2.5"
 
 next@12.0.8:
   version "12.0.8"
