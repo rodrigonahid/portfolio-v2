@@ -31,6 +31,14 @@ const Home = ({ posts, locale }: PostsProps) => {
     <>
       <Head>
         <title>Rodrigo Nahid | Home</title>
+        <meta
+          name="description"
+          content={
+            locale === "en"
+              ? "Hello, i'm Rodrigo Nahid, Javascript fullstack developer, focused on React, React Native and Node.js. Welcome to my portfolio, hope you enjoy!"
+              : "Olá, eu sou Rodrigo Nahid, desenvolvedor fullstack React, React Native e Node.js. Bem vindo ao meu portfolio, espero que goste!"
+          }
+        ></meta>
       </Head>
 
       <Header />

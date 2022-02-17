@@ -20,6 +20,7 @@ interface PostItemProps {
     created_at: string;
     feature_image: string;
     html: string;
+    excerpt: string;
   };
 }
 
@@ -31,10 +32,12 @@ interface Path {
 }
 
 export default function PostItem({ singlePost }: PostItemProps) {
+  console.log(singlePost);
   return (
     <>
       <Head>
         <title>Rodrigo Nahid | {singlePost.title}</title>
+        <meta name="description" content={singlePost.excerpt} />
       </Head>
 
       <Header />
@@ -47,7 +50,6 @@ export default function PostItem({ singlePost }: PostItemProps) {
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
-
 
   const setLocale = (locale: string) => {
     if (locale === "English") {

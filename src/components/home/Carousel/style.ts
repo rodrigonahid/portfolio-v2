@@ -17,6 +17,10 @@ export const CarouselWrapper = styled.div`
   height: 250px;
   padding: 16px 0;
 
+  @media screen and (max-width: 768px) {
+    height: 300px;
+  }
+
   margin-top: -13vh;
 
   position: relative;

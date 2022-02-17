@@ -19,6 +19,7 @@ interface PostsProps {
 
 export function HomePosts({ posts }: PostsProps) {
   const { t } = useTranslation("posts");
+  console.log(posts);
 
   return (
     <HomePostsWrapper>
@@ -48,13 +49,13 @@ export function HomePosts({ posts }: PostsProps) {
           </div>
         </PostsTitle>
         <ItemRow>
-          {posts?.map((post, index) => {
+          {/* {posts.map((post, index) => {
             if (index === 0) {
               return <PostItemHighlighted key={index} post={post} />;
             } else {
               return <PostItem key={index} post={post} />;
             }
-          })}
+          })} */}
 
           <span className="button-link">
             <Link href="/posts" passHref>
