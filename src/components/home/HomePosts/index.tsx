@@ -9,17 +9,21 @@ import { HomePostsWrapper, ItemRow, PostsTitle, VerTudoButton } from "./styles";
 interface PostsProps {
   posts: {
     data: {
-      image: {
-        url: string;
-      };
-      date: string;
       title: {
         text: string;
+      }[];
+      image: {
+        alt: string;
+        url: string;
       };
       content: {
+        type: string;
         text: string;
       }[];
     };
+    first_publication_date: string;
+
+    slugs: string[];
   }[];
 }
 

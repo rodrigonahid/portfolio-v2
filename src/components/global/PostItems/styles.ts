@@ -68,12 +68,13 @@ export const ItemHightlightedWrapper = styled.div`
   .bottom {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     p {
       font-style: normal;
       font-weight: bold;
-      font-size: 0.9rem;
-      line-height: 1.25rem;
+      font-size: 1rem;
+      line-height: 28px;
 
       letter-spacing: 0.04em;
 
@@ -166,6 +167,7 @@ export const ItemWrapper = styled.div`
   .bottom {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     p {
       font-style: normal;

@@ -16,12 +16,22 @@ export interface staticProps {
 }
 export interface PostsProps {
   posts: {
-    id: string;
-    title: string;
-    slug: string;
-    html: string;
-    created_at: string;
-    feature_image?: string;
+    data: {
+      title: {
+        text: string;
+      }[];
+      image: {
+        alt: string;
+        url: string;
+      };
+      content: {
+        type: string;
+        text: string;
+      }[];
+    };
+    first_publication_date: string;
+
+    slugs: string[];
   }[];
   locale: string;
 }

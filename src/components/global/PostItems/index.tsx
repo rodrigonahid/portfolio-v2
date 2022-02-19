@@ -16,6 +16,10 @@ interface attributesProps {
         alt: string;
         url: string;
       };
+      content: {
+        type: string;
+        text: string;
+      }[];
     };
     first_publication_date: string;
 
@@ -25,13 +29,13 @@ interface attributesProps {
 
 export function PostItemHighlighted({ post }: attributesProps) {
   const { t } = useTranslation("posts");
-  console.log(post.data);
+
   return (
     <ItemHightlightedWrapper>
       <div className="left">
         <div className="top">
           <h3>{post.data.title[0].text}</h3>
-          {/* {HTMLReactParser(post.html)} */}
+          <p>{post.data.content[0].text}</p>
         </div>
         <span className="bottom">
           <p>{formatDate(post.first_publication_date)}</p>
@@ -63,16 +67,16 @@ export function PostItem({ post }: attributesProps) {
 
   return (
     <ItemWrapper>
-      {/* <div className="top">
-        <h3>{post.title}</h3>
-        {HTMLReactParser(post.html)}
+      <div className="top">
+        <h3>{post.data.title[0].text}</h3>
+        <p>{post.data.content[0].text}</p>
       </div>
       <span className="bottom">
-        <p>{post.created_at}</p>
-        <Link href={`/posts/${post.slug}`}>
+        <p>{formatDate(post.first_publication_date)}</p>
+        <Link href={`/posts/${post.slugs[0]}`}>
           <a>{t("singleLink")}</a>
         </Link>
-      </span> */}
+      </span>
     </ItemWrapper>
   );
 }
