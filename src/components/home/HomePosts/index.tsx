@@ -8,18 +8,23 @@ import { HomePostsWrapper, ItemRow, PostsTitle, VerTudoButton } from "./styles";
 
 interface PostsProps {
   posts: {
-    id: string;
-    title: string;
-    slug: string;
-    html: string;
-    created_at: string;
-    feature_image?: string;
+    data: {
+      image: {
+        url: string;
+      };
+      date: string;
+      title: {
+        text: string;
+      };
+      content: {
+        text: string;
+      }[];
+    };
   }[];
 }
 
 export function HomePosts({ posts }: PostsProps) {
   const { t } = useTranslation("posts");
-  console.log(posts);
 
   return (
     <HomePostsWrapper>
@@ -49,13 +54,13 @@ export function HomePosts({ posts }: PostsProps) {
           </div>
         </PostsTitle>
         <ItemRow>
-          {/* {posts.map((post, index) => {
+          {posts.map((post, index) => {
             if (index === 0) {
               return <PostItemHighlighted key={index} post={post} />;
             } else {
               return <PostItem key={index} post={post} />;
             }
-          })} */}
+          })}
 
           <span className="button-link">
             <Link href="/posts" passHref>

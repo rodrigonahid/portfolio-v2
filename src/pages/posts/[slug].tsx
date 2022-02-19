@@ -32,7 +32,6 @@ interface Path {
 }
 
 export default function PostItem({ singlePost }: PostItemProps) {
-  console.log(singlePost);
   return (
     <>
       <Head>

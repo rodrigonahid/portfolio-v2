@@ -1,8 +1,10 @@
 const formatDate = (timestamp: string) => {
   const date = timestamp.split("T");
-  
+  if (Array.isArray(date)) {
+    return date[0].replaceAll("-", "/");
+  }
 
-  return date;
+  return timestamp;
 };
 
 export default formatDate;

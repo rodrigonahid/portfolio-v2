@@ -9,7 +9,7 @@ const nextConfig = {
   images: {
     domains: [
       "localhost",
-      "first-commit.ghost.io",
+      "images.prismic.io",
       "avatars.githubusercontent.com",
     ],
   },

@@ -1,29 +1,36 @@
 import axios from "axios";
 
-export const api = axios.create({
-  baseURL: process.env.API_URL + "/ghost/api/v3",
-  params: {
-    key: process.env.API_KEY,
-  },
-});
-
 interface IPosts {
   data: {
-    posts: {}[];
+    results: {}[];
   };
 }
 
+// Get Refs
+const ref = axios.create({
+  baseURL: process.env.API_URL,
+});
+
+async function getRef() {
+  const res = await ref.get("/api/v2");
+  return res.data.refs[0].ref;
+}
+
+// Get Posts
+export const api = axios.create({
+  baseURL: process.env.API_URL + "/api/v2/documents/search",
+  params: {
+    ref: getRef(),
+  },
+});
+
 export async function getPosts(locale: string) {
   try {
-    const res: IPosts = await api.get(`/content/posts?include=tags`);
-    const localPosts = res.data.posts.filter((item: any) => {
-      if (locale === "pt-BR" && item.primary_tag.slug == "pt-br") {
-        return item;
-      } else if (locale === "en" && item.primary_tag.slug === "en-us") {
-        return item;
-      }
+    const res: IPosts = await api.get("/", {
+      params: { lang: locale === "en" ? "en-us" : "pt-br" },
     });
-    return localPosts;
+
+    return res.data.results;
   } catch (err: any) {
     return err.message;
   }
