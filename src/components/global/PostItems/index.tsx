@@ -22,7 +22,7 @@ interface attributesProps {
       }[];
     };
     first_publication_date: string;
-
+    id: string;
     slugs: string[];
   };
 }
@@ -39,14 +39,14 @@ export function PostItemHighlighted({ post }: attributesProps) {
         </div>
         <span className="bottom">
           <p>{formatDate(post.first_publication_date)}</p>
-          <Link href={`/posts/${post.slugs[0]}`}>
+          <Link href={`/posts/${post.id}`}>
             <a>{t("singleLink")}</a>
           </Link>
         </span>
       </div>
       <div className="img-wrapper">
         {post.data?.image.url && (
-          <Link href={`/posts/${post.slugs[0]}`}>
+          <Link href={`/posts/${post.id}`}>
             <a>
               <Image
                 src={post.data.image.url}
@@ -73,7 +73,7 @@ export function PostItem({ post }: attributesProps) {
       </div>
       <span className="bottom">
         <p>{formatDate(post.first_publication_date)}</p>
-        <Link href={`/posts/${post.slugs[0]}`}>
+        <Link href={`/posts/${post.id}`}>
           <a>{t("singleLink")}</a>
         </Link>
       </span>

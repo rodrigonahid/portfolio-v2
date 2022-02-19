@@ -11,8 +11,22 @@ import HTMLReactParser from "html-react-parser";
 
 interface PostsSingleContentProps {
   singlePost: {
-    html: string;
-    feature_image?: string;
+    data: {
+      title: {
+        text: string;
+      }[];
+      image: {
+        alt: string;
+        url: string;
+      };
+      content: {
+        type: string;
+        text: string;
+      }[];
+    };
+    first_publication_date: string;
+
+    slugs: string[];
   };
 }
 
@@ -21,17 +35,17 @@ export function PostsSingleContent({ singlePost }: PostsSingleContentProps) {
     <PostsSingleContentWrapper>
       <Container>
         <ImageWrapper>
-          {singlePost.feature_image && (
+          {singlePost.data.image && (
             <Image
-              src={singlePost.feature_image}
+              src={singlePost.data.image.url}
               layout="fill"
               objectFit="contain"
-              alt="placeholder img"
+              alt={singlePost.data.image.alt}
             />
           )}
         </ImageWrapper>
         <PostSingleHeaderContent>
-          {HTMLReactParser(singlePost.html)}
+          {singlePost.data.content.map((post, index) => post.text)}
         </PostSingleHeaderContent>
       </Container>
     </PostsSingleContentWrapper>

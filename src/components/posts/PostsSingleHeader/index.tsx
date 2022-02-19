@@ -5,8 +5,12 @@ import { PostSingleHeaderWrapper, PostSingleWrapper } from "./styles";
 
 interface PostSingleHeaderProps {
   singlePost: {
-    title: string;
-    created_at: string;
+    data: {
+      title: {
+        text: string;
+      }[];
+    };
+    first_publication_date: string;
   };
 }
 
@@ -16,9 +20,10 @@ export function PostsSingleHeader({ singlePost }: PostSingleHeaderProps) {
     <PostSingleWrapper>
       <Container>
         <PostSingleHeaderWrapper>
-          <h1>{singlePost.title}</h1>
+          <h1>{singlePost.data.title[0].text}</h1>
           <p>
-            {t("postedAt")} <span>{singlePost.created_at}</span>
+            {t("postedAt")}{" "}
+            <span>{formatDate(singlePost.first_publication_date)}</span>
           </p>
         </PostSingleHeaderWrapper>
       </Container>

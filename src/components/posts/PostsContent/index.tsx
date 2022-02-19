@@ -5,12 +5,22 @@ import { PostContentOffset, PostsContentWrapper } from "./styles";
 
 interface PostsProps {
   posts: {
+    data: {
+      title: {
+        text: string;
+      }[];
+      image: {
+        alt: string;
+        url: string;
+      };
+      content: {
+        type: string;
+        text: string;
+      }[];
+    };
+    first_publication_date: string;
     id: string;
-    title: string;
-    slug: string;
-    html: string;
-    created_at: string;
-    feature_image: string;
+    slugs: string[];
   }[];
 }
 

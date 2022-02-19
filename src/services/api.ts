@@ -36,17 +36,6 @@ export async function getPosts(locale: string) {
   }
 }
 
-// export async function getPostsHome(locale: string) {
-//   try {
-//     const res = await api.get(
-//       `/posts?pagination[pageSize]=4&populate=%2A&locale=${locale}`
-//     );
-//     return res.data;
-//   } catch (err: any) {
-//     return err.message;
-//   }
-// }
-
 export async function getSinglePost(locale: string, slug: string) {
   try {
     const res = await api.get(`/content/posts/slug/${slug}?include=tags`);
@@ -66,9 +55,10 @@ export async function getSinglePost(locale: string, slug: string) {
 
 export async function getAllPosts() {
   try {
-    const res = await api.get("/content/posts?include=tags");
-
-    return res.data.posts;
+    const res: IPosts = await api.get("/", {
+      params: { lang: "*" },
+    });
+    return res.data.results;
   } catch (err: any) {
     return err.message;
   }

@@ -22,7 +22,7 @@ interface PostsProps {
       }[];
     };
     first_publication_date: string;
-
+    id: string;
     slugs: string[];
   }[];
 }

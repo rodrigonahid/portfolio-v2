@@ -16,27 +16,37 @@ interface StaticPros {
 
 interface PostItemProps {
   singlePost: {
-    title: string;
-    created_at: string;
-    feature_image: string;
-    html: string;
-    excerpt: string;
+    data: {
+      title: {
+        text: string;
+      }[];
+      image: {
+        alt: string;
+        url: string;
+      };
+      content: {
+        type: string;
+        text: string;
+      }[];
+    };
+    first_publication_date: string;
+    id: string;
+    slugs: string[];
   };
 }
 
 interface Path {
-  slug: string;
-  primary_tag: {
-    name: string;
-  };
+  id: string;
+  lang: string;
 }
 
 export default function PostItem({ singlePost }: PostItemProps) {
+  console.log(singlePost);
   return (
     <>
       <Head>
-        <title>Rodrigo Nahid | {singlePost.title}</title>
-        <meta name="description" content={singlePost.excerpt} />
+        {/* <title>Rodrigo Nahid | {singlePost.data.title[0].text}</title>
+        <meta name="description" content={singlePost.data.content[0].text} /> */}
       </Head>
 
       <Header />
@@ -50,20 +60,11 @@ export default function PostItem({ singlePost }: PostItemProps) {
 export async function getStaticPaths() {
   const posts = await getAllPosts();
 
-  const setLocale = (locale: string) => {
-    if (locale === "English") {
-      return "en";
-    }
-    if (locale === "Portuguese") {
-      return "pt-BR";
-    }
-  };
-
   return {
     // paths: [{ params: { id: `${i}` }, locale: "en" }]
     paths: posts.map((item: Path) => ({
-      params: { slug: `${item.slug}` },
-      locale: setLocale(item.primary_tag.name),
+      params: { id: `${item.id}` },
+      locale: item.lang === "en-us" ? "en" : "pt-BR",
     })),
     fallback: false,
   };
