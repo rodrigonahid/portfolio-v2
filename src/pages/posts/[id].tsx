@@ -9,7 +9,7 @@ import { getAllPosts, getSinglePost } from "../../services/api";
 
 interface StaticPros {
   params: {
-    slug: string;
+    id: string;
   };
   locale: string;
 }
@@ -41,7 +41,7 @@ interface Path {
 }
 
 export default function PostItem({ singlePost }: PostItemProps) {
-  console.log(singlePost);
+  // console.log(singlePost);
   return (
     <>
       <Head>
@@ -50,8 +50,8 @@ export default function PostItem({ singlePost }: PostItemProps) {
       </Head>
 
       <Header />
-      <PostsSingleHeader singlePost={singlePost} />
-      <PostsSingleContent singlePost={singlePost} />
+      {/* <PostsSingleHeader singlePost={singlePost} /> */}
+      {/* <PostsSingleContent singlePost={singlePost} /> */}
       <Footer />
     </>
   );
@@ -71,8 +71,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, locale }: StaticPros) {
-  const data = await getSinglePost(locale, params.slug);
-
+  const data = await getSinglePost(params.id);
+  console.log(data);
   return {
     props: {
       singlePost: data ?? null,

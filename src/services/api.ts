@@ -36,18 +36,10 @@ export async function getPosts(locale: string) {
   }
 }
 
-export async function getSinglePost(locale: string, slug: string) {
+export async function getSinglePost(id: string) {
   try {
-    const res = await api.get(`/content/posts/slug/${slug}?include=tags`);
-    const localPosts = res.data.posts.filter((item: any) => {
-      if (locale === "pt-BR" && item.primary_tag.slug == "pt-br") {
-        return item;
-      } else if (locale === "en" && item.primary_tag.slug === "en-us") {
-        return item;
-      }
-    });
-
-    return localPosts[0];
+    const res = await api.get(`?q=[[at(document.id, "${id}" )]]`);
+    return res.data;
   } catch (err: any) {
     return err.message;
   }
