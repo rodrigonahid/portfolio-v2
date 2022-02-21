@@ -1,7 +1,7 @@
 # That's my portfolio
 
 Yeah, I built it on my own, even the Web Design and UI,
-and (you can have it here)[https://www.figma.com/file/oqxQFh816kaCYWzykghpRx/Portfolio-Rodrigo?node-id=0%3A1] !
+and (you can have it here) [https://www.figma.com/file/oqxQFh816kaCYWzykghpRx/Portfolio-Rodrigo?node-id=0%3A1] !
 
 ## And is open-source too!
 
