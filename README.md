@@ -1,11 +1,9 @@
 # That's my portfolio
 
-Yeah, I built it on my own, even the Web Design and UI,
-and <a href="https://www.figma.com/file/oqxQFh816kaCYWzykghpRx/Portfolio-Rodrigo?node-id=0%3A1" target="_blank">you can have it here</a>!
+Yeah, I built it on my own, even the Web Design and UI.
+<a href="https://www.figma.com/file/oqxQFh816kaCYWzykghpRx/Portfolio-Rodrigo?node-id=0%3A1" target="_blank">Here's a link to Figma</a>!
 
-## And is open-source too!
 
-I really don't care if you copy me, shame on you!
 
 ## How you made it?
 
